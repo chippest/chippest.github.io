@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .base:hover {
+            transform: translateX(-5px) translateY(-5px);
+            filter: drop-shadow(5px 5px 5px #af1df394);
+            transition: 1s;
+        }
+        img {
+            margin: -2px;
+        }
+        .avatarimg {
+            transition: 0.1s;
+        }
+        .avatarimg:hover {
+            transform:scale(1.01);
+            transform-origin: center;
+            filter: drop-shadow(5px 5px 5px #ab0cea88);
+        }
+        .close:hover {
+            scale: 1.02;
+            transform-origin: bottom left;
+            transition: 0.25s;
+            filter: drop-shadow(1.5px 1.5px 5px #7e0aac88)
+        }
+        .login:hover {
+            scale: 1.02;
+            filter: drop-shadow(1.5px 1.5px 5px #7e0aac88)
+        }
+        .fp:hover {
+            scale: 1.02;
+            filter: drop-shadow(1.5px 1.5px 5px #7e0aac88)
+        }
+    </style>
+</head>
+<body style="text-align: center;align-items: center;justify-content: center;display: flex;background: linear-gradient(45deg,#25162b, #151B20,#25162b );color: white; width: 100wh;height: 100vh;overflow: hidden;">
+    <div class="base" style="background-color: #151B20;;border: 1px solid #ab0cea17;width: 500px; border-radius: 5%;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;background: linear-gradient(45deg,#25162b, #151B20,#25162b );transition: 1s;">
+        
+        <form>
+            <div style="margin-top: -20px;">
+                <h2 style="font-weight: bolder;font-size: xx-large;color: #34434F;text-shadow: 0 0 10px #351a33">Login Form</h2>
+            </div>
+            
+            <div class="imgcontainer" style="margin-bottom: 20px;;">
+                <img class="avatarimg" src="src/avatar.png" style="border-radius: 100%;border: 3px #ab0cea88 solid;">
+            </div>
+            
+            <form>
+                <div class="credentials" style="color: #34434F; ;text-align: left;padding-left:165px;padding: 10px 165px; border-bottom-left-radius: 30%;border-bottom-right-radius: 30%;margin-bottom: 20px;">
+                    <label for="user" style="font-size: 2rem;font-weight: bold;">Username</label><br>
+                    <input type="text" name="user" placeholder="Enter Username" style="background-color: #0E222D;border: 1px #ab0cea solid;border-radius: 5%;width: 180px;height: 25px;padding: 3px 8px;margin: 0px 0px 10px 0px; color: #919191;"><br>
+    
+                    <label for="pass" style="font-size: 2rem;font-weight: bold;">Password</label><br>
+                    <input type="password" name="pass" placeholder="Enter Password" style="background-color: #0E222D;border: 1px #ab0cea solid;border-radius: 5%;width: 180px;height: 25px;padding: 3px 8px;margin: 0px 0px 10px 0px; color: #919191;"><br>
+    
+                    <input class="login" type="submit" value="Login" style="width: 250px;padding-top: 3px;padding-bottom: 3px;;height: 50px; border-color: #ab0cea;background-color: #0E222D;color: #9d1df3;border-radius: 10%;font-size: 2rem;margin-left:-30px;margin-top: 10px;cursor: pointer;text-shadow: 0 0 10px #af1df394; transition: 0.25s;"><br>
+                    <div class="rememberdiv" style="margin-left: 30px; padding-top: 20px;">
+                        <input type="checkbox" name="rememberme">
+                        <label for="rememberme">Remember me</label><br>
+                    </div>
+                </div>
+
+                <button class="fp" type="button" onclick="alert('olla lunaria- oh wait, youre not lunaria? oh mb!')" style="border-color: #ab0cea;background-color: #0E222D;color: #9d1df3;cursor: pointer;padding: 8px 14px;border-radius: 10%;margin-bottom: 16px; transition: 0.2s;">Forgot Password?</button>
+
+            </form>
+        </form>
+    </div>
+</body>
+</html>
