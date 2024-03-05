@@ -13,7 +13,7 @@
 
   }
 button {
-  font-size: 2rem;color: black;
+  font-size: 2rem;color: black;background-color: #2A2139;
   width: 13rem;height: 4rem;
   border-radius: 30px;
   cursor: pointer;border: rgba(61, 1, 61, 0.356) 1px solid;
