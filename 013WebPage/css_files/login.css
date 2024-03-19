@@ -1,5 +1,11 @@
-.formtag input{
+/* .formtag input{
     margin: 15px;
+} */
+.formtag{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
 }
 .login-box{
     text-align: center;
@@ -23,4 +29,36 @@
 }
 #btn-login{
     border-radius: 10px;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 97vh;
+    background: url(https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm00MjItMDczLWt6cGhnMjR1LmpwZw.jpg);
+    background-repeat: no-repeat; 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.inpfield{
+    border: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-family: "Madimi One", sans-serif;
+    font-size: medium !important;
+}
+
+#XD{
+    margin: 0 70px 15px 0;
+    
+}
+
+#XD:hover{
+    color: rgb(38, 38, 132);
+    cursor: pointer !important;
+}
+.headmaster{
+    position: absolute!important;
+    top: 0;
 }
