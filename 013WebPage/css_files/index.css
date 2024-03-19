@@ -1,0 +1,90 @@
+* {
+    transition: 0.2s all;
+}
+.navbar {
+    width: 80vw;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 15px;
+    border-radius: 12px;
+    justify-content: end;
+    justify-content: space-around;
+}
+.nav-item{
+    text-decoration: none !important;
+    color: white !important;
+    font-size: 1.2rem;
+    font-family: "Madimi One", sans-serif;
+}
+.main-item:hover, .hidden-item:hover {
+    transform: scale(1.1);
+}
+.hidden-item:hover {
+    margin: 0.5rem 0;
+}
+.main-item{
+    background-color: rgba(0, 0, 0, 0.438);
+    padding:  10px;
+    border-radius: 12px;
+    margin: 5px;
+    justify-content: center;
+    cursor: pointer;
+}
+body{
+    background-image: url(https://t4.ftcdn.net/jpg/00/69/42/49/360_F_69424905_vxTpRGAcVKni9157VpKAOG6MpTX30etl.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;flex-direction: column;
+    justify-content: center;align-items: center;
+    font-family: "Madimi One", sans-serif;
+    color: black;
+}
+.container {
+    display: flex;flex-direction: column;
+    justify-content: center;align-items: center;
+    width: 57.5%;
+    border-radius: 12px;
+    background-color: white;
+}
+hr {
+    width: 55%;
+}
+.heading {
+    text-align: center;
+    font-size: 4rem;
+    color: black;
+    background-color: white;
+}
+.para {
+    padding: 5px 30px;
+}
+.hidden {
+    display: flex;flex-direction: column;
+    position: absolute;
+    gap: 0;
+    display: none;
+    transition: 1s all;
+}
+.shown {
+    display: flex;flex-direction: column;
+    gap: 0.15rem;
+    transform: translateY(6rem);
+}
+.hidden-item {
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.63);
+    color: white;
+    padding: 10px;
+    font-size: 1.1rem;
+    font-family: "Madimi One", sans-serif;
+}
+.aligner {
+    display: flex;flex-direction: column;
+    align-items: center;justify-content: center;
+    position: relative;
+}
