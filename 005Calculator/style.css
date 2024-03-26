@@ -104,6 +104,8 @@ body{
         display: block;
     }
     .main{
+        display: flex;align-items: center; justify-content: center;
+        width: 100vw;transition: 1s all;
         margin-bottom: 3rem;
     }
     body{
