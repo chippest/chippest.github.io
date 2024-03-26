@@ -3,7 +3,7 @@ function screen(){
     document.getElementById("text").value = text
 }
 function Scroll(){
-    document.body.classList.toggle("scroll")
+    document.getElementById("maincalc").classList.toggle("disp")
 }
 function input(x){
     text += x
@@ -19,8 +19,5 @@ function removefunc(){
 }
 function finalcalc(){
     text = eval(text).toString()
-    if (text = 'infinity') {
-        text = ''
-    }
     screen()
 }
