@@ -5,48 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link href="style.css" rel="stylesheet">
+    <style>
+        * {
+            --hi: black;
+        }
+    </style>
 </head>
-<body>
+<body class="">
         <div class="home">
-            <button class="start">Summon Calculator</button>
+            <button id="start" onclick="Scroll()">Summon Calculator</button>
         </div>
     
         <div class="main">
             <div class="calculator">
-                <section class="screen">
-                    <span>0</span>
-                </section>
+                <input type="text" id="text" class="screen" placeholder="0" readonly>
         
-                <section class="container">
+                <div class="container">
                     <div class="row">
-                        <button class="button double">C</button>
-                        <button class="button">&mapstoleft;</button>
-                        <button class="button">&divide;</button>
+                        <button onclick="clearfunc()" class="button double">C</button>
+                        <button onclick="removefunc()" class="button">&mapstoleft;</button>
+                        <button onclick="input('/')" class="button">&divide;</button>
                     </div>
                     <div class="row">
-                        <button class="button">7</button>
-                        <button class="button">8</button>
-                        <button class="button">9</button>
-                        <button class="button">&times;</button>
+                        <button onclick="input('7')" class="button">7</button>
+                        <button onclick="input('8')" class="button">8</button>
+                        <button onclick="input('9')" class="button">9</button>
+                        <button onclick="input('*')" class="button">&times;</button>
                     </div>
                     <div class="row">
-                        <button class="button">4</button>
-                        <button class="button">5</button>
-                        <button class="button">6</button>
-                        <button class="button">&minus;</button>
+                        <button onclick="input('4')" class="button">4</button>
+                        <button onclick="input('5')" class="button">5</button>
+                        <button onclick="input('6')" class="button">6</button>
+                        <button onclick="input('-')" class="button">&minus;</button>
                     </div>
                     <div class="row">
-                        <button class="button">1</button>
-                        <button class="button">2</button>
-                        <button class="button">3</button>
-                        <button class="button">&plus;</button>
+                        <button onclick="input('1')" class="button">1</button>
+                        <button onclick="input('2')" class="button">2</button>
+                        <button onclick="input('3')" class="button">3</button>
+                        <button onclick="input('+')" class="button">&plus;</button>
                     </div>
                     <div class="row">
-                        <button class="button triple">0</button>
-                        <button class="button">&equals;</button>
+                        <button onclick="input('0')" class="button triple on">0</button>
+                        <button onclick="finalcalc()" class="button">&equals;</button>
                     </div>
-                </section>
+                </div>
             </div>
         </div>
+
+        <script src="script.js"></script>
 </body>
 </html>
