@@ -68,7 +68,7 @@ body{
 .button{
     font-size: 3rem;
     font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
-	color: #919191;background-color: rgb(25, 25, 36);
+	color: #919191;background-color: #191924;
     cursor: pointer;
     padding: 0;margin: 0;
     width: 6rem;height: 6rem;

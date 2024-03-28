@@ -65,3 +65,6 @@ edit()
 
 }
 
+function callerthingie(){
+    document.getElementById("rowsinthing").classList.toggle("getuplol")
+}

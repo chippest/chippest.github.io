@@ -6,8 +6,9 @@
     font-family: "Madimi One", sans-serif;
 }
 body {
+    margin: 0;
     display: flex;align-items: center;justify-content: center;
-    height: 98vh;
+    height: 100vh;
     background: linear-gradient(45deg,#25162b, #151B20,#25162b);
 }
 #chatscreen {
@@ -82,4 +83,9 @@ span {
 }
 #send2 {
     background-color: rgba(0, 0, 0, 0.137);
+}
+@media (max-width:700px){
+    #chatscreen{
+        scale: 0.8;
+    }
 }

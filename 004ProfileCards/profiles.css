@@ -117,6 +117,7 @@ a {
     display: flex;flex-direction: row;background: linear-gradient(45deg,#25162b, #151B20,#25162b);
     align-items: center;justify-content: center;text-align: center;
     filter: drop-shadow(0px 3px 10px black);
+    transition: 0.5s all;
 }
 #cc1 {
     background: linear-gradient(45deg, #262B31,#53585E,#262B31);
@@ -316,3 +317,87 @@ a {
     background-color: #151B20;
     color: #919191;
 }
+
+@media (max-width:1040px){
+    .cardcontainer{
+        scale: 0.9;
+        margin: -30px 0;
+    }
+    .btn{
+        font-size: 30px;
+        height: 90px;width: 265px
+    }
+}
+@media (max-width:940px){
+    .cardcontainer{
+        scale: 0.8;
+        margin: -60px 0;
+    }
+    .btn{
+        font-size: 27px;
+        height: 80px;width: 255px
+    }
+}
+@media (max-width:840px){
+    .cardcontainer{
+        scale: 0.7;
+        margin: -90px 0;
+    }
+    .btn{
+        font-size: 25px;
+        height: 75px;width: 247px
+    }
+}
+@media (max-width:740px){
+    h1{
+        text-align: center;
+    }
+    .cardcontainer{
+        scale: 0.6;
+        margin: -120px 0;
+    }
+    .btn{
+        font-size: 22px;
+        height: 70px;width: 235px
+    }
+}
+@media (max-width:640px){
+    h1{
+        text-align: center;
+    }
+    .cardcontainer{
+        scale: 0.5;
+        margin: -150px 0;
+    }
+    .btn{
+        font-size: 20px;
+        height: 65px;width: 225px
+    }
+}@media (max-width:540px){
+    h1{
+        text-align: center;
+    }
+    .cardcontainer{
+        scale: 0.4;
+        margin: -180px 0;
+    }
+}@media (max-width:440px){
+    h1{
+        text-align: center;
+    }
+    .cardcontainer{
+        scale: 0.3;
+        margin: -210px 0;
+    }
+}@media (max-width:340px){
+    h1{
+        text-align: center;
+    }
+    .cardcontainer{
+        scale: 0.2;
+        margin: -240px 0;
+    }
+}
+
+
+
