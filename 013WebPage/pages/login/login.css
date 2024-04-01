@@ -13,7 +13,6 @@
     border-radius: 12px;
     margin: 5px;
     justify-content: center;
-    cursor: pointer;
     align-items: center;
     justify-content: center;
     font-family: "Madimi One", sans-serif;
@@ -26,13 +25,14 @@
 }
 #btn-login{
     border-radius: 10px;
+    cursor: pointer;
 }
 body{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 97vh;
-    background: url(https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm00MjItMDczLWt6cGhnMjR1LmpwZw.jpg);
+    background: url(login.png);
     background-repeat: no-repeat; 
     background-size: cover;
     background-position: center;

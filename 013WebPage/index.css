@@ -2,7 +2,7 @@
     transition: 0.2s all;
 }
 body{
-    background-image: url(https://t4.ftcdn.net/jpg/00/69/42/49/360_F_69424905_vxTpRGAcVKni9157VpKAOG6MpTX30etl.jpg);
+    background-image: url(index.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -15,7 +15,7 @@ body{
 .container {
     display: flex;flex-direction: column;
     justify-content: center;align-items: center;
-    width: 57.5%;
+    width: 57%;
     border-radius: 12px;
     background-color: white;
     margin-top: 10rem;
@@ -31,4 +31,9 @@ hr {
 }
 .para {
     padding: 5px 30px;
+}
+@media (max-width: 720px) {
+    .container{
+        width: 80%;
+    }
 }

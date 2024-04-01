@@ -10,35 +10,46 @@ body {
     justify-content: center;
 }
 .navbar {
-    width: 95%;height: 1rem;
     list-style: none;
     display: flex;
     flex-direction: row;
-    gap: 1rem;
-    padding: 15px;
+    padding: 0;
     border-radius: 12px;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 .main-item{
+    text-decoration: none;
     background-color: rgba(0, 0, 0, 0.438);
     padding:  10px;
+    margin: 0;
     border-radius: 12px;
-    margin: 0 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-}
-.main-item:hover, .hidden-item:hover {
-    transform: scale(1.1);
-}
-.nav-item{
-    text-decoration: none !important;
+    font-family: "Madimi One", sans-serif;
     color: white !important;
     font-size: 1.2rem;
-    font-family: "Madimi One", sans-serif;
+    transition: 0.1s all;
+}.main-pic{
+    padding:  0;
     margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-family: "Madimi One", sans-serif;
+    transition: 0.1s all;
+    border-radius: 50%;
+}
+.main-item:hover, .main-pic:hover {
+    transform: scale(1.05);
+}
+#navavatar {
+    border: 0.5rem rgba(0, 0, 0, 0.438) solid;
+    cursor: pointer;
+    
 }
 .aligner {
 
@@ -54,7 +65,7 @@ body {
 .shown {
     display: flex;flex-direction: column;
     gap: 0.15rem;
-    transform: translateY(6rem);
+    transform: translateY(7rem);
 }
 .hidden-item {
     cursor: pointer;
@@ -69,4 +80,10 @@ body {
 }
 .hidden-item:hover {
     margin: 0.5rem 0;
+    
+}
+@media (max-width: 500px) {
+.shown {
+    margin-right: 1.5rem;
+}
 }
