@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chipp Player</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/d8baa3cb86.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="bgEffect"></div>
+    <div class="leftContainer" class="column">
+        <div id="playingInfo" class="column">
+            <img src="pfp.jpg" id="playingIcon">
+            <div id="playingText" class="column">
+                <strong id="ptTitle">Title</strong>
+                <span id="ptSinger">Singer</span>
+            </div>
+            <div id="playingControls" class="row">
+                <button>shuf</button>
+                <button>prev</button>
+                <button id="playButton" onclick="document.getElementById('audioFile').play(), trigger()"></audio><i class="fa-solid fa-play"></i></button>
+                <button id="pauseButton" class="buttonOff" onclick="document.getElementById('audioFile').pause(), trigger()"></audio><i class="fa-solid fa-pause"></i></button>
+                <button>next</button>
+                <button>volu</button>
+                <audio id="audioFile" src="http://lets.linkpc.net/song.mp3"></audio>
+            </div>
+            <div id="playingSeekBar" class="row">
+                <span>00:00</span>
+                <div>----</div>
+                <span>00:00</span>
+            </div>
+        </div>
+    </div>
+    <div class="rightContainer">
+        <div></div>
+        <div></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
