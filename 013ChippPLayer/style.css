@@ -13,7 +13,7 @@ body{
     justify-content: space-evenly;
     align-items: center;
     background-image: url(icon.jpg);
-    backdrop-filter: blur(3rem) brightness(50%);
+    backdrop-filter: blur(3rem) brightness(50%) saturate(20%);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -72,6 +72,7 @@ body:after{
 #playingIcon{
     border-radius: 30px;
     width: 27rem;
+    filter: saturate(50%);
 }
 #playingText{
     align-items: start;
