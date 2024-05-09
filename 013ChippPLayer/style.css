@@ -1,3 +1,6 @@
+:root {
+    --iconAccent: #1657B2;
+}
 *{
     font-family: sans-serif;
 }
@@ -13,6 +16,32 @@ body{
     backdrop-filter: blur(3rem) brightness(50%);
     background-size: cover;
     background-position: center;
+    position: relative;
+}
+body:before{
+    content: '';
+    width: 30rem;
+    height: 30rem;
+    border-radius: 100%;
+    filter: blur(5rem);
+    background-color: var(--iconAccent);
+    z-index: -1;
+    position: absolute;
+    top: -10%;
+    left: -3%;
+    opacity: 50%;
+}
+body:after{
+    content: '';
+    width: 40rem;
+    height: 40rem;
+    border-radius: 100%;
+    filter: blur(5rem);
+    background-color: var(--iconAccent);
+    z-index: -1;
+    position: absolute;
+    right: 0;
+    opacity: 50%;
 }
 .row{
     display: flex;
@@ -32,6 +61,7 @@ body{
     height: 10rem;
     background-color: rgba(0, 128, 0, 0.432);
     border-radius: 25px;
+    display: none;
 }
 #playingInfo{
     justify-content: center;
@@ -151,8 +181,18 @@ audio::-webkit-media-controls-fullscreen-volume-max-button{
 }
 
 @media (max-width:520px) {
-    .rightContainer{
-        display: none;
+    body:before{
+        width: 15rem;
+        height: 15rem;
+        filter: blur(3rem);
+        top: -10%;
+        left: -10%;
+    }
+    body:after{
+        width: 15rem;
+        height: 15rem;
+        filter: blur(2rem);
+        bottom: -10%;
     }
     #playingInfo{
         padding: 1.5rem;
