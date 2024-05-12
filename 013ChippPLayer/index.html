@@ -7,15 +7,23 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/d8baa3cb86.js" crossorigin="anonymous"></script>
 </head>
-<body>
-<!-- <body onresize="refresh()"> -->
+<body onresize="refresh()">
+    <div id="sectionSliders">
+        <button id="sectionOne" onclick="sectionOne()"><i class="fa-solid fa-circle-play"></i></button>
+        <button id="sectionTwo" onclick="sectionTwo()"><i class="fa-solid fa-sliders"></i></button>
+    </div>
+    
     <div id="leftContainer" class="column">
         <div id="playingInfo" class="column">
-            <img src="icon.jpg" id="playingIcon">
+
+            <!-- SONG TITLE-INFORMATION -->
+            <img src="icon01.jpg" id="playingIcon">
             <div id="playingText" class="column">
-                <strong id="ptTitle">Talk To You</strong>
-                <span id="ptSinger">ZachB</span>
+                <strong id="ptTitle">Thousand Miles</strong>
+                <span id="ptSinger">the Kid LAROI</span>
             </div>
+
+            <!-- AUDIO FUNCTIONS -->
             <div id="playingControls" class="row">
                 <button><i class='fa-solid fa-shuffle'></i></button>
                 <button><i class='fa-solid fa-backward-step'></i></button>
@@ -23,30 +31,91 @@
                 <button><i class='fa-solid fa-forward-step'></i></button>
                 <button id="mutebutton"><i class='fa-solid fa-volume-high'></i></button>
             </div>
+
+            <!-- AUDIO FILE -->
             <div id="playingSeekBar" class="row">
-                <audio id="audioFile" src="http://lets.linkpc.net/song.mp3" controls controlsList="nodownload noplaybackrate"></audio>
+                <audio id="audioFile" src="song01.mp3" controls controlsList="nodownload noplaybackrate"></audio>
             </div>
+
+
         </div>
     </div>
 
     <div id="rightContainer" class="column">
         <div id="rcont" class="row">
             <div class="rcontmain">
-                info
+                info will be updated soon! check out the other sections :D
             </div>
             <div class="rcontmain row songAlbum">
                 <div class="column songList">
-                    <div class="row songItem" style="--iconAccent: #c264a659;">
-                        <img src="icon.jpg" alt="" class="songAvatar">
+
+
+                    <!-- SONG THEME -->
+                    <div class="row songItem" style="--iconAccent: #978e758c;" onclick="changePlayerInfo(songList[0])">
+                        <span class="accentSpan">#978e758c</span>
+                        <img src="icon01.jpg" alt="" class="songAvatar">
                         <div class="songText column">
+
+
+                            <!-- SONG TITLE AND STUFF -->
                             <div class="songUp row">
-                                <span class="songTitle">Talk to you</span>
+                                <span class="songTitle">Thousand Miles</span>
                                 <span class="songID">01</span>
                             </div>
                             <div class="songUp row">
-                                <span class="songSinger">ZachB</span>
+                                <span class="songSinger">the Kid LAROI</span>
                                 <span class="songUploader">Chipp</span>
                             </div>
+
+
+
+                        </div>
+                    </div>
+
+
+                    <!-- SONG THEME -->
+                    <div class="row songItem" style="--iconAccent: #c264a659;" onclick="changePlayerInfo(songList[1])">
+                        <span class="accentSpan">#c264a659</span>
+                        <img src="icon02.jpg" alt="" class="songAvatar">
+                        <div class="songText column">
+                            <div class="songUp row">
+
+
+                            <!-- SONG TITLE AND STUFF -->
+                            <span class="songTitle">Talk To You</span>
+                                <span class="songID">02</span>
+                            </div>
+                            <div class="songUp row">
+                                <span class="songSinger">Zach B</span>
+                                <span class="songUploader">Chipp</span>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                
+
+
+                    <!-- SONG THEME -->
+                    <div class="row songItem" style="--iconAccent: #2725716c;" onclick="changePlayerInfo(songList[2])">
+                        <span class="accentSpan">#2725716c</span>
+                        <img src="icon03.jpg" alt="" class="songAvatar">
+                        <div class="songText column">
+                            <div class="songUp row">
+
+
+                            <!-- SONG TITLE AND STUFF -->
+                            <span class="songTitle">Hearts</span>
+                                <span class="songID">03</span>
+                            </div>
+                            <div class="songUp row">
+                                <span class="songSinger">Zach B</span>
+                                <span class="songUploader">Chipp</span>
+                            </div>
+
+
+
                         </div>
                     </div>
                 </div>

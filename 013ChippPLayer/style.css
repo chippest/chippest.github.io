@@ -1,6 +1,6 @@
 :root {
-    --iconAccent: #C264A6;
-    --rightSize: 35rem;
+    --iconAccent: #978E75;
+    --rightSize: 40rem;
 }
 *{
     font-family: sans-serif;
@@ -13,11 +13,12 @@ body{
     margin: 0;
     justify-content: space-evenly;
     align-items: center;
-    background-image: url(icon.jpg);
+    background-image: url(icon01.jpg);
     backdrop-filter: blur(3rem) brightness(50%) saturate(20%);
     background-size: cover;
     background-position: center;
     position: relative;
+    transition: 0.5s all;
 }
 body:before{
     content: '';
@@ -31,6 +32,7 @@ body:before{
     top: -10%;
     left: -3%;
     opacity: 50%;
+    transition: 0.5s all;
 }
 body:after{
     content: '';
@@ -43,6 +45,7 @@ body:after{
     position: absolute;
     right: 0;
     opacity: 50%;
+    transition: 0.5s all;
 }
 .row{
     display: flex;
@@ -51,6 +54,12 @@ body:after{
 .column{
     display: flex;
     flex-direction: column;
+}
+#sectionSliders{
+    display: none;
+}
+button{
+    transition: 0.5s all;
 }
 #leftContainer{
     background-color: rgba(0, 0, 0, 0.39);
@@ -66,6 +75,8 @@ body:after{
 #playingIcon{
     border-radius: 30px;
     width: 27rem;
+    filter: brightness(100%);
+    transition: 0.5s all;
 }
 #playingText{
     align-items: start;
@@ -173,62 +184,6 @@ audio::-webkit-media-controls-fullscreen-volume-min-button{
 audio::-webkit-media-controls-fullscreen-volume-max-button{
     display: none;
 }
-@media (max-width:1920px){}
-@media (max-width:520px) {
-    :root{
-        --rightSize: 20rem;
-    }
-    body{
-        flex-direction: column;
-        overflow: hidden;
-        height: 100svh;
-    }
-    body:before{
-        width: 15rem;
-        height: 15rem;
-        filter: blur(3rem);
-        top: -10%;
-        left: -10%;
-    }
-    body:after{
-        width: 15rem;
-        height: 15rem;
-        filter: blur(2rem);
-        bottom: -10%;
-    }
-    #playingInfo{
-        padding: 1.5rem;
-    }
-    #playingIcon{
-        width: 15rem;
-    }
-    #playingText strong{
-        font-size: 2rem;
-    }
-    #playingText span{
-        font-size: 1rem;
-    }
-    #playingControls button{
-        width: 2.5rem;
-        height: 2.5rem;
-        font-size: 1rem;
-        border-radius: 10px;
-    }
-    audio::-webkit-media-controls-current-time-display,
-    audio::-webkit-media-controls-time-remaining-display{
-        font-size: 0.75rem;
-    }
-    audio::-webkit-media-controls-timeline{
-        margin-left: 1.8rem;
-    }
-    #rightContainer{
-        position: absolute;
-    }
-    #buttons{
-        position: absolute;
-        right: 1rem;
-    }
-}
 #rightContainer{
     width: var(--rightSize);
     align-items: start;
@@ -271,6 +226,9 @@ audio::-webkit-media-controls-fullscreen-volume-max-button{
 }
 .songItem:hover{
     background-color: var(--iconAccent);
+}
+.accentSpan{
+    display: none;
 }
 .songText{
     justify-content: space-around;
@@ -347,6 +305,9 @@ input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{
 
 #buttons{
     gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 #buttons button{
     background-color: rgba(0, 0, 0, 0.39);
@@ -359,4 +320,92 @@ input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{
     border-radius: 50px;
     border: none;
     cursor: pointer;
+    color: var(--iconAccent);
+}
+
+
+@media (max-width:1920px){}
+@media (max-width:520px) {
+    :root{
+        --rightSize: 25rem;
+    }
+    body{
+        flex-direction: row;
+        overflow: hidden;
+        height: 100svh;
+    }
+    body:before{
+        width: 15rem;
+        height: 15rem;
+        filter: blur(3rem);
+        top: -10%;
+        left: -10%;
+    }
+    body:after{
+        width: 15rem;
+        height: 15rem;
+        filter: blur(2rem);
+        bottom: -10%;
+    }
+    #playingInfo{
+        padding: 1.5rem;
+    }
+    #playingIcon{
+        width: 15rem;
+    }
+    #playingText strong{
+        font-size: 2rem;
+    }
+    #playingText span{
+        font-size: 1rem;
+    }
+    #playingControls button{
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+        border-radius: 10px;
+    }
+    audio::-webkit-media-controls-current-time-display,
+    audio::-webkit-media-controls-time-remaining-display{
+        font-size: 0.75rem;
+    }
+    audio::-webkit-media-controls-timeline{
+        margin-left: 1.8rem;
+    }
+    #sectionSliders{
+        position: absolute;
+        top: 0;
+        display: flex;
+        flex-direction: row;
+        width: 100vw;
+    }
+    #sectionSliders button{
+        width: 100%;
+        height: 4.5rem;
+        font-size: 3rem;
+        /* border: none; */
+        color: var(--iconAccent);
+        background-color: rgba(0, 0, 0, 0.39);
+    }
+    #sectionOne{
+        border-bottom-left-radius: 20px;
+        border: none;
+        border-right: 1px #00000028 solid;
+    }
+    #sectionTwo{
+        border-bottom-right-radius: 20px;
+        border: none;
+        border-left: 1px #00000028 solid;
+    }
+    #leftContainer{
+        width: 18rem;
+        position: absolute;
+    }
+    #buttons,#rightContainer{
+        width: 0;
+    }
+    #rightContainer,#leftContainer,#buttons{
+        transition: 1s all;
+        overflow: hidden;
+    }
 }
