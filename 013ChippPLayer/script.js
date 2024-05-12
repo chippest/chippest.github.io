@@ -48,7 +48,7 @@ rightSlide(2)
 
 
 
-function Person(avatar, name, singer, time, accent) {
+function Song(avatar, name, singer, time, accent) {
   this.avatar = avatar;
   this.name = name;
   this.singer = singer;

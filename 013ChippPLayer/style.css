@@ -221,11 +221,12 @@ audio::-webkit-media-controls-fullscreen-volume-max-button{
     audio::-webkit-media-controls-timeline{
         margin-left: 1.8rem;
     }
-    #buttons{
-        flex-direction: row;
-        padding: 1rem;
+    #rightContainer{
         position: absolute;
-        transform: translateY(0.2rem);
+    }
+    #buttons{
+        position: absolute;
+        right: 1rem;
     }
 }
 #rightContainer{
