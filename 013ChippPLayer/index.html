@@ -8,7 +8,8 @@
     <script src="https://kit.fontawesome.com/d8baa3cb86.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="leftContainer" class="column">
+<!-- <body onresize="refresh()"> -->
+    <div id="leftContainer" class="column">
         <div id="playingInfo" class="column">
             <img src="icon.jpg" id="playingIcon">
             <div id="playingText" class="column">
@@ -27,9 +28,56 @@
             </div>
         </div>
     </div>
-    <div class="rightContainer">
-        <div></div>
-        <div></div>
+
+    <div id="rightContainer" class="column">
+        <div id="rcont" class="row">
+            <div class="rcontmain">
+                info
+            </div>
+            <div class="rcontmain row songAlbum">
+                <div class="column songList">
+                    <div class="row songItem" style="--iconAccent: #c264a659;">
+                        <img src="icon.jpg" alt="" class="songAvatar">
+                        <div class="songText column">
+                            <div class="songUp row">
+                                <span class="songTitle">Talk to you</span>
+                                <span class="songID">01</span>
+                            </div>
+                            <div class="songUp row">
+                                <span class="songSinger">ZachB</span>
+                                <span class="songUploader">Chipp</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span class="songVert">Select The Song Of Your Choice</span>
+            </div>
+            <div class="rcontmain">
+                <form id="uploadForm" action="" class="column">
+                    Song Details
+                    <input type="text" name="songNameIP" id="songNameIP" placeholder="Song Name">
+                    <input type="text" name="singerNameIP" id="singerNameIP" placeholder="Singer Name">
+                    <label for="avatarIP">
+                        Select Song Cover
+                        <input type="file" name="avatarIP" id="avatarIP">
+                    </label>
+                    <label for="accentIP">
+                        Select Accent Color
+                        <input type="color" name="accentIP" id="accentIP">
+                    </label>
+                    <input type="number" name="songIDIP" id="songIDIP" placeholder="Song ID">
+                    Uploader Details
+                    <input type="text" name="uploaderUserIP" id="uploaderUserIP" placeholder="Userame">
+                    <input type="text" name="uploaderIDIP" id="uploaderIDIP" placeholder="ID Code">
+                    <input type="button" value="Upload">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="buttons" class="column">
+        <button onclick="rightSlide(0)"><i class="fa-solid fa-circle-info"></i></button>
+        <button onclick="rightSlide(1)"><i class="fa-solid fa-rectangle-list"></i></button>
+        <button onclick="rightSlide(2)"><i class="fa-solid fa-user"></i></button>
     </div>
 
     <script src="script.js"></script>

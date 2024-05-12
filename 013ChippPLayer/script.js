@@ -3,6 +3,12 @@ let pButton = document.getElementById("playButton")
 let musicOn = false
 let mButton = document.getElementById("mutebutton")
 let volumeOn = true
+let rCont = document.getElementById(`rcont`)
+
+
+function refresh() {
+    location.reload()
+}
 
 pButton.onclick = function(){
     if(!musicOn){
@@ -25,4 +31,27 @@ mButton.onclick = function(){
         mButton.innerHTML = "<i class='fa-solid fa-volume-high'>"
         volumeOn = true
     }
+}
+
+function rightSlide(x){
+    let style = getComputedStyle(document.querySelector(`:root`))
+    let rightSize = style.getPropertyValue('--rightSize')
+    const finalSize = Number(rightSize.slice(0, -3))
+
+    let abc = x * finalSize
+    let translation = 0-abc
+    
+    rCont.style.transform = `translateX(${translation}rem)`
+}
+rightSlide(2)
+
+
+
+
+function Person(avatar, name, singer, time, accent) {
+  this.avatar = avatar;
+  this.name = name;
+  this.singer = singer;
+  this.time = time;
+  this.accent = accent;
 }
