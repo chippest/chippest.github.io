@@ -327,7 +327,7 @@ input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{
 @media (max-width:1920px){}
 @media (max-width:520px) {
     :root{
-        --rightSize: 25rem;
+        --rightSize: 20rem;
     }
     body{
         flex-direction: row;
