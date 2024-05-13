@@ -13,7 +13,7 @@ body{
     margin: 0;
     justify-content: space-evenly;
     align-items: center;
-    background-image: url(icon01.jpg);
+    background-image: url(https://lets.linkpc.net/icons/1.jpg);
     backdrop-filter: blur(3rem) brightness(50%) saturate(20%);
     background-size: cover;
     background-position: center;
