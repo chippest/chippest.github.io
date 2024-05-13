@@ -59,7 +59,7 @@ body:after{
     display: none;
 }
 button{
-    transition: 0.5s all;
+    transition: 0.2s all;
 }
 #leftContainer{
     background-color: rgba(0, 0, 0, 0.39);
@@ -156,7 +156,6 @@ audio::-webkit-media-controls-time-remaining-display{
     right: 0;
 }
 audio::-webkit-media-controls-timeline{
-    -webkit-appearance: media-slider;
     display: flex;
     justify-content: center;
     background-color: transparent;
@@ -165,7 +164,6 @@ audio::-webkit-media-controls-timeline{
     margin-left: 1.5rem;
 }
 audio::-webkit-media-controls-volume-slider{
-    -webkit-appearance: media-volume-slider;
     display: none;
 }
 audio::-webkit-media-controls-fullscreen-button{
@@ -189,7 +187,6 @@ audio::-webkit-media-controls-fullscreen-volume-max-button{
     align-items: start;
     justify-content: center;
     overflow: hidden;
-    padding: 1rem;
 }
 #rcont{
     width: calc(var(--rightSize)*3);
@@ -201,7 +198,6 @@ audio::-webkit-media-controls-fullscreen-volume-max-button{
 .rcontmain{
     width: var(--rightSize);
     padding: 1rem;
-    margin: 1rem;
     background-color: rgba(0, 0, 0, 0.39);
     border-radius: 25px;
     color: white;
@@ -211,10 +207,10 @@ audio::-webkit-media-controls-fullscreen-volume-max-button{
     justify-content: space-between;
     gap: 1rem;
 }
-.songList,.songItem,.songText{
+#songList,.songItem,.songText{
     width: 100%;
 }
-.songList{
+#songList{
     gap: 0.5rem;
 }
 .songItem{
@@ -222,19 +218,21 @@ audio::-webkit-media-controls-fullscreen-volume-max-button{
     background-color: rgba(0, 0, 0, 0.39);
     border-radius: 5px;
     padding: 0.2rem;
-    transition: 0.1s all;
+    transition: 0.3s all;
+    cursor: pointer;
+}
+.songNow{
+    background-color: var(--iconAccent);
 }
 .songItem:hover{
     background-color: var(--iconAccent);
 }
-.accentSpan{
-    display: none;
-}
 .songText{
     justify-content: space-around;
+    font-size: 1.2rem;
 }
 .songAvatar{
-    width: 4rem;
+    width: 5em;
     border-radius: 5px 0 0 5px;
     filter: saturate(50%);
 }
@@ -242,7 +240,7 @@ audio::-webkit-media-controls-fullscreen-volume-max-button{
     justify-content: space-between;
 }
 .songID,.songUploader{
-    padding-right: 0.3rem;
+    padding-right: 0.4rem;
 }
 .songVert{
     writing-mode: vertical-rl;
@@ -322,7 +320,9 @@ input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{
     cursor: pointer;
     color: var(--iconAccent);
 }
-
+#buttons button:hover,#playingControls button:hover{
+    background-color: rgba(0, 0, 0, 0.568);
+}
 
 @media (max-width:1920px){}
 @media (max-width:520px) {
@@ -333,6 +333,7 @@ input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{
         flex-direction: row;
         overflow: hidden;
         height: 100svh;
+        justify-content: center;
     }
     body:before{
         width: 15rem;
