@@ -29,9 +29,8 @@ starterText.onclick = function() {
     symbolAni.classList.remove("opacity-off")
     leftIcon.classList.remove("opacity-off")
   }, 100);
-
-  starterText.style.transform = "translateY(75%)"
   setTimeout(() => {
+    starterText.style.display = "none"
     starterText.style.opacity = "0%"
     starterText.style.zIndex = '-1'
   }, 200);
