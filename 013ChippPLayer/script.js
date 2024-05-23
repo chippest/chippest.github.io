@@ -158,7 +158,7 @@ sButton.onclick = function(){
 function rightSlide(x){
     let root = getComputedStyle(document.querySelector(`:root`))
     let rightSize = root.getPropertyValue('--rightSize')
-    if(window.innerWidth <= 520){
+    if(window.innerWidth <= 720){
     const finalSize = Number(rightSize.slice(0, -2))
     console.log(finalSize)
 
@@ -245,7 +245,7 @@ function changePlayerInfo(x){
     plsgr.innerText = x.singer
     audioFile.src = x.audio
     playSong()
-    if (window.innerWidth <= 520) {
+    if (window.innerWidth <= 720) {
         sectionOne()
     }
     songNumber = x.id - 1
@@ -255,7 +255,7 @@ function changePlayerInfo(x){
     document.getElementById(`song${x.id}`).classList.add('songNow')
 }
 
-if (window.innerWidth <= 520) {
+if (window.innerWidth <= 720) {
     document.body.appendChild(document.getElementById('playingControls'))
     document.body.appendChild(document.getElementById('rightContainer'))
     document.body.appendChild(document.getElementById('buttons'))
