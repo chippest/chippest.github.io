@@ -209,23 +209,35 @@ rightSlide(1)
 
 // ANDROID SECTIONS
 function sectionOne(){
-    document.getElementById("rightContainer").style.transform = 'translateX(100%)'
-    document.getElementById("buttons").style.transform = 'translateX(100%)'
-    document.getElementById("leftContainer").style.transform = 'translateX(0%)'
+    document.getElementById("rightContainer").style.width = '0'
     document.getElementById('playingIcon').style.transform = ''
     document.getElementById('ptTitle').style.transform = ''
     document.getElementById('ptSinger').style.transform = ''
+    setTimeout(() => {
+        document.getElementById("buttons").style.width = '0'
+        document.getElementById("leftContainer").style.transform = 'translateX(0%)'
+    }, 500);
 }
 function sectionTwo(){
     document.getElementById("leftContainer").style.transform = 'translateX(-100%)'
-    document.getElementById("rightContainer").style.transform = 'translateX(0%)'
-    document.getElementById("buttons").style.transform = 'translateX(0%)'
     document.getElementById('playingIcon').style.transform = 'translateX(-100%)'
-    document.getElementById('ptTitle').style.transform = 'translateY(100%)'
-    document.getElementById('ptSinger').style.transform = 'translateY(-100%)'
+    document.getElementById('ptTitle').style.transform = 'translateX(200%)'
+    document.getElementById('ptSinger').style.transform = 'translateX(-200%)'
+    setTimeout(() => {
+        document.getElementById("rightContainer").style.width = ''
+        document.getElementById("buttons").style.width = ''
+    }, 500);
 }
 if (window.innerWidth <= 720) {
     sectionOne()
+    document.body.appendChild(document.getElementById('playingControls'))
+    document.body.appendChild(document.getElementById('rightContainer'))
+    document.body.appendChild(document.getElementById('buttons'))
+    document.body.appendChild(document.getElementById('leftContainer'))
+    document.body.appendChild(document.getElementById('sectionSliders'))
+    document.getElementById('playingText').appendChild(document.getElementById('playingIcon'))
+    document.getElementById('playingText').appendChild(document.getElementById('ptSinger'))
+    document.getElementById('playingText').appendChild(document.getElementById('ptTitle'))
 }
 
 
@@ -282,15 +294,4 @@ function changePlayerInfo(x){
         document.getElementById(`song${songID[i]}`).classList.remove('songNow')
     }
     document.getElementById(`song${x.id}`).classList.add('songNow')
-}
-
-if (window.innerWidth <= 720) {
-    document.body.appendChild(document.getElementById('playingControls'))
-    document.body.appendChild(document.getElementById('rightContainer'))
-    document.body.appendChild(document.getElementById('buttons'))
-    document.body.appendChild(document.getElementById('leftContainer'))
-    document.body.appendChild(document.getElementById('sectionSliders'))
-    document.getElementById('playingText').appendChild(document.getElementById('playingIcon'))
-    document.getElementById('playingText').appendChild(document.getElementById('ptSinger'))
-    document.getElementById('playingText').appendChild(document.getElementById('ptTitle'))
 }

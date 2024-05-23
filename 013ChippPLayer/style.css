@@ -481,9 +481,11 @@ input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{
         justify-content: center;
         background: none;
         align-items: center;
+        z-index: -1;
     }
     #rightContainer{
         width: 100vw;
+        /* width: 0; */
     }
     #sectionSliders{
         z-index: 2;
