@@ -21,6 +21,7 @@ body{
     background-position: center;
     position: relative;
     transition: 0.5s all;
+    overflow: hidden;
 }
 body:before{
     content: '';
@@ -48,6 +49,15 @@ body:after{
     right: 0;
     opacity: 50%;
     transition: 0.5s all;
+}
+#bodyContainer{
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100vw;
+    overflow: hidden;
 }
 .row{
     display: flex;
@@ -451,7 +461,8 @@ input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{
     #songList{
         width: 100%;
         gap: 0.5rem;
-        max-height: calc(7 * (5rem + 0.45rem + 0.4rem));
+        height: calc(6 * (5rem + 0.45rem + 0.4rem));
+        max-height: calc(8 * (5rem + 0.45rem + 0.4rem));
         overflow: scroll;
         scroll-snap-type: y mandatory;
     }
@@ -464,6 +475,7 @@ input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{
     }
     #leftContainer{
         width: 100vw;
+        position: absolute;
         /* position: absolute; */
         border-radius: 0;
         justify-content: center;
@@ -477,7 +489,7 @@ input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{
         z-index: 2;
     }
     #rightContainer,#leftContainer,#buttons{
-        transition: 0.2s all;
+        transition: 1s all;
         overflow: hidden;
     }
 }

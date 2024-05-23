@@ -179,62 +179,55 @@ rightSlide(1)
 
 
 // ANDROID SECTIONS
-function sectionOne(){
-        document.getElementById("buttons").style.opacity = '0%'
-        document.getElementById("rightContainer").style.opacity = '0%'
-    setTimeout(() => {
-        document.getElementById("leftContainer").style.display = 'flex'
-        document.getElementById("rightContainer").style.display = 'none'
-        document.getElementById("buttons").style.display = 'none'
-    }, 200);
-    setTimeout(() => {
-        document.getElementById("leftContainer").style.opacity = '100%'
-    }, 400);
-    // document.getElementById('playingIcon').style.transform = ''
-    // document.getElementById('ptTitle').style.transform = ''
-    // document.getElementById('ptSinger').style.transform = ''
-}
-function sectionTwo(){
-        document.getElementById("leftContainer").style.opacity = '0%'
-    setTimeout(() => {
-        document.getElementById("leftContainer").style.display = 'none'
-        document.getElementById("rightContainer").style.display = 'flex'
-        document.getElementById("buttons").style.display = 'flex'
-    }, 200);
-    setTimeout(() => {
-        document.getElementById("rightContainer").style.opacity = '100%'
-        document.getElementById("buttons").style.opacity = '100%'
-    }, 400);
-    // document.getElementById('playingIcon').style.transform = 'translateX(-100%)'
-    // document.getElementById('ptTitle').style.transform = 'translateY(100%)'
-    // document.getElementById('ptSinger').style.transform = 'translateY(-100%)'
-}
-if (window.innerWidth <= 720) {
-    sectionOne()
-}
-
-// ANDROID SECTIONS
 // function sectionOne(){
-//     document.getElementById("rightContainer").style.transform = 'translateX(100%)'
-//     document.getElementById("buttons").style.transform = 'translateX(100%)'
-//     document.getElementById("leftContainer").style.transform = 'translateX(0%)'
-//     document.getElementById('playingIcon').style.transform = ''
-//     document.getElementById('ptTitle').style.transform = ''
-//     document.getElementById('ptSinger').style.transform = ''
+//         document.getElementById("buttons").style.opacity = '0%'
+//         document.getElementById("rightContainer").style.opacity = '0%'
+//     setTimeout(() => {
+//         document.getElementById("leftContainer").style.display = 'flex'
+//         document.getElementById("rightContainer").style.display = 'none'
+//         document.getElementById("buttons").style.display = 'none'
+//     }, 200);
+//     setTimeout(() => {
+//         document.getElementById("leftContainer").style.opacity = '100%'
+//     }, 400);
 // }
 // function sectionTwo(){
-//     document.getElementById("leftContainer").style.transform = 'translateX(-100%)'
-//     document.getElementById("rightContainer").style.transform = 'translateX(0%)'
-//     document.getElementById("buttons").style.transform = 'translateX(0%)'
-//     document.getElementById('playingIcon').style.transform = 'translateX(-100%)'
-//     document.getElementById('ptTitle').style.transform = 'translateY(100%)'
-//     document.getElementById('ptSinger').style.transform = 'translateY(-100%)'
+//         document.getElementById("leftContainer").style.opacity = '0%'
+//     setTimeout(() => {
+//         document.getElementById("leftContainer").style.display = 'none'
+//         document.getElementById("rightContainer").style.display = 'flex'
+//         document.getElementById("buttons").style.display = 'flex'
+//     }, 200);
+//     setTimeout(() => {
+//         document.getElementById("rightContainer").style.opacity = '100%'
+//         document.getElementById("buttons").style.opacity = '100%'
+//     }, 400);
 // }
 // if (window.innerWidth <= 720) {
 //     sectionOne()
 // }
 
-// sectionTwo()
+// ANDROID SECTIONS
+function sectionOne(){
+    document.getElementById("rightContainer").style.transform = 'translateX(100%)'
+    document.getElementById("buttons").style.transform = 'translateX(100%)'
+    document.getElementById("leftContainer").style.transform = 'translateX(0%)'
+    document.getElementById('playingIcon').style.transform = ''
+    document.getElementById('ptTitle').style.transform = ''
+    document.getElementById('ptSinger').style.transform = ''
+}
+function sectionTwo(){
+    document.getElementById("leftContainer").style.transform = 'translateX(-100%)'
+    document.getElementById("rightContainer").style.transform = 'translateX(0%)'
+    document.getElementById("buttons").style.transform = 'translateX(0%)'
+    document.getElementById('playingIcon').style.transform = 'translateX(-100%)'
+    document.getElementById('ptTitle').style.transform = 'translateY(100%)'
+    document.getElementById('ptSinger').style.transform = 'translateY(-100%)'
+}
+if (window.innerWidth <= 720) {
+    sectionOne()
+}
+
 
 // MUSIC
 function Song(id, fullname, name, singer, uploader, accent, avatar, audio) {
