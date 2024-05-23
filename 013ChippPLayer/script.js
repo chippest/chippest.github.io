@@ -209,14 +209,14 @@ rightSlide(1)
 
 // ANDROID SECTIONS
 function sectionOne(){
-    document.getElementById("rightContainer").style.width = '0'
+    document.getElementById("buttons").style.width = '0'
+document.getElementById("rightContainer").style.width = '0'
+    setTimeout(() => {
+    document.getElementById("leftContainer").style.transform = 'translateX(0%)'
     document.getElementById('playingIcon').style.transform = ''
     document.getElementById('ptTitle').style.transform = ''
     document.getElementById('ptSinger').style.transform = ''
-    setTimeout(() => {
-        document.getElementById("buttons").style.width = '0'
-        document.getElementById("leftContainer").style.transform = 'translateX(0%)'
-    }, 500);
+    }, 450);
 }
 function sectionTwo(){
     document.getElementById("leftContainer").style.transform = 'translateX(-100%)'
@@ -224,9 +224,9 @@ function sectionTwo(){
     document.getElementById('ptTitle').style.transform = 'translateX(200%)'
     document.getElementById('ptSinger').style.transform = 'translateX(-200%)'
     setTimeout(() => {
-        document.getElementById("rightContainer").style.width = ''
-        document.getElementById("buttons").style.width = ''
-    }, 500);
+    document.getElementById("rightContainer").style.width = ''
+    document.getElementById("buttons").style.width = ''
+    }, 450);
 }
 if (window.innerWidth <= 720) {
     sectionOne()
