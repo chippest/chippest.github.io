@@ -158,12 +158,23 @@ sButton.onclick = function(){
 function rightSlide(x){
     let root = getComputedStyle(document.querySelector(`:root`))
     let rightSize = root.getPropertyValue('--rightSize')
-    const finalSize = Number(rightSize.slice(0, -3))
+    if(window.innerWidth <= 520){
+    const finalSize = Number(rightSize.slice(0, -2))
+    console.log(finalSize)
 
     let abc = x * finalSize
     let translation = 0-abc
     
-    rCont.style.transform = `translateX(${translation}rem)`
+    rCont.style.transform = `translateX(${translation}vw)`
+    } else{
+        const finalSize = Number(rightSize.slice(0, -3))
+        console.log(finalSize)
+    
+        let abc = x * finalSize
+        let translation = 0-abc
+        
+        rCont.style.transform = `translateX(${translation}rem)`
+    }
 }
 rightSlide(1)
     
@@ -171,24 +182,23 @@ rightSlide(1)
     
 // ANDROID SECTIONS
 function sectionOne(){
-    document.getElementById("rightContainer").style.width = "0rem"
-    document.getElementById("buttons").style.width = "0rem"
-    setTimeout(() => {
-        document.getElementById("leftContainer").style.width = '18rem'
-        document.getElementById("rightContainer").style.width = "0rem"
-        document.getElementById("buttons").style.width = "0rem"
-    }, 700);
+    document.getElementById("rightContainer").style.transform = 'translateX(100%)'
+    document.getElementById("buttons").style.transform = 'translateX(100%)'
+    document.getElementById("leftContainer").style.transform = 'translateX(0%)'
+    document.getElementById('playingIcon').style.transform = ''
+    document.getElementById('ptTitle').style.transform = ''
+    document.getElementById('ptSinger').style.transform = ''
 }
 function sectionTwo(){
-    document.getElementById("leftContainer").style.width = "0rem"
-    setTimeout(() => {
-        document.getElementById("rightContainer").style.width = 'var(--rightSize)'
-        document.getElementById("buttons").style.width = '4rem'
-        document.getElementById("leftContainer").style.width = "0rem"
-    }, 700);
+    document.getElementById("leftContainer").style.transform = 'translateX(-100%)'
+    document.getElementById("rightContainer").style.transform = 'translateX(0%)'
+    document.getElementById("buttons").style.transform = 'translateX(0%)'
+    document.getElementById('playingIcon').style.transform = 'translateX(-100%)'
+    document.getElementById('ptTitle').style.transform = 'translateY(100%)'
+    document.getElementById('ptSinger').style.transform = 'translateY(-100%)'
 }
 
-
+// sectionTwo()
 
 // MUSIC
 function Song(id, fullname, name, singer, uploader, accent, avatar, audio) {
@@ -243,4 +253,11 @@ function changePlayerInfo(x){
         document.getElementById(`song${songID[i]}`).classList.remove('songNow')
     }
     document.getElementById(`song${x.id}`).classList.add('songNow')
+}
+
+if (window.innerWidth <= 520) {
+    document.body.appendChild(document.getElementById('playingControls'))
+    document.body.appendChild(document.getElementById('rightContainer'))
+    document.body.appendChild(document.getElementById('buttons'))
+    document.body.appendChild(document.getElementById('sectionSliders'))
 }

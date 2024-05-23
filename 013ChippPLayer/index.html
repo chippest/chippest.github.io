@@ -8,10 +8,6 @@
     <script src="https://kit.fontawesome.com/d8baa3cb86.js" crossorigin="anonymous"></script>
 </head>
 <body onresize="refresh()">
-    <div id="sectionSliders">
-        <button id="sectionOne" onclick="sectionOne()"><i class="fa-solid fa-circle-play"></i></button>
-        <button id="sectionTwo" onclick="sectionTwo()"><i class="fa-solid fa-sliders"></i></button>
-    </div>
     
     <div id="leftContainer" class="column">
         <div id="playingInfo" class="column">
@@ -76,6 +72,12 @@
         <button onclick="rightSlide(0)"><i class="fa-solid fa-circle-info"></i></button>
         <button onclick="rightSlide(1)"><i class="fa-solid fa-rectangle-list"></i></button>
         <button onclick="rightSlide(2)"><i class="fa-solid fa-user"></i></button>
+    </div>
+    
+    <div id="sectionSliders">
+        <div id="sectionSelected"></div>
+        <button id="sectionOne" onclick="sectionOne()"><i class="fa-solid fa-circle-play"></i></button>
+        <button id="sectionTwo" onclick="sectionTwo()"><i class="fa-solid fa-sliders"></i></button>
     </div>
 
     <script src="script.js"></script>
