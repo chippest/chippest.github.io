@@ -160,7 +160,6 @@ function rightSlide(x){
     let rightSize = root.getPropertyValue('--rightSize')
     if(window.innerWidth <= 720){
     const finalSize = Number(rightSize.slice(0, -2))
-    console.log(finalSize)
 
     let abc = x * finalSize
     let translation = 0-abc
@@ -168,7 +167,6 @@ function rightSlide(x){
     rCont.style.transform = `translateX(${translation}vw)`
     } else{
         const finalSize = Number(rightSize.slice(0, -3))
-        console.log(finalSize)
     
         let abc = x * finalSize
         let translation = 0-abc
@@ -177,26 +175,64 @@ function rightSlide(x){
     }
 }
 rightSlide(1)
-    
-    
-    
+
+
+
 // ANDROID SECTIONS
 function sectionOne(){
-    document.getElementById("rightContainer").style.transform = 'translateX(100%)'
-    document.getElementById("buttons").style.transform = 'translateX(100%)'
-    document.getElementById("leftContainer").style.transform = 'translateX(0%)'
-    document.getElementById('playingIcon').style.transform = ''
-    document.getElementById('ptTitle').style.transform = ''
-    document.getElementById('ptSinger').style.transform = ''
+        document.getElementById("buttons").style.opacity = '0%'
+        document.getElementById("rightContainer").style.opacity = '0%'
+    setTimeout(() => {
+        document.getElementById("leftContainer").style.display = 'flex'
+        document.getElementById("rightContainer").style.display = 'none'
+        document.getElementById("buttons").style.display = 'none'
+    }, 200);
+    setTimeout(() => {
+        document.getElementById("leftContainer").style.opacity = '100%'
+    }, 400);
+    // document.getElementById('playingIcon').style.transform = ''
+    // document.getElementById('ptTitle').style.transform = ''
+    // document.getElementById('ptSinger').style.transform = ''
 }
 function sectionTwo(){
-    document.getElementById("leftContainer").style.transform = 'translateX(-100%)'
-    document.getElementById("rightContainer").style.transform = 'translateX(0%)'
-    document.getElementById("buttons").style.transform = 'translateX(0%)'
-    document.getElementById('playingIcon').style.transform = 'translateX(-100%)'
-    document.getElementById('ptTitle').style.transform = 'translateY(100%)'
-    document.getElementById('ptSinger').style.transform = 'translateY(-100%)'
+        document.getElementById("leftContainer").style.opacity = '0%'
+    setTimeout(() => {
+        document.getElementById("leftContainer").style.display = 'none'
+        document.getElementById("rightContainer").style.display = 'flex'
+        document.getElementById("buttons").style.display = 'flex'
+    }, 200);
+    setTimeout(() => {
+        document.getElementById("rightContainer").style.opacity = '100%'
+        document.getElementById("buttons").style.opacity = '100%'
+    }, 400);
+    // document.getElementById('playingIcon').style.transform = 'translateX(-100%)'
+    // document.getElementById('ptTitle').style.transform = 'translateY(100%)'
+    // document.getElementById('ptSinger').style.transform = 'translateY(-100%)'
 }
+if (window.innerWidth <= 720) {
+    sectionOne()
+}
+
+// ANDROID SECTIONS
+// function sectionOne(){
+//     document.getElementById("rightContainer").style.transform = 'translateX(100%)'
+//     document.getElementById("buttons").style.transform = 'translateX(100%)'
+//     document.getElementById("leftContainer").style.transform = 'translateX(0%)'
+//     document.getElementById('playingIcon').style.transform = ''
+//     document.getElementById('ptTitle').style.transform = ''
+//     document.getElementById('ptSinger').style.transform = ''
+// }
+// function sectionTwo(){
+//     document.getElementById("leftContainer").style.transform = 'translateX(-100%)'
+//     document.getElementById("rightContainer").style.transform = 'translateX(0%)'
+//     document.getElementById("buttons").style.transform = 'translateX(0%)'
+//     document.getElementById('playingIcon').style.transform = 'translateX(-100%)'
+//     document.getElementById('ptTitle').style.transform = 'translateY(100%)'
+//     document.getElementById('ptSinger').style.transform = 'translateY(-100%)'
+// }
+// if (window.innerWidth <= 720) {
+//     sectionOne()
+// }
 
 // sectionTwo()
 
@@ -259,5 +295,9 @@ if (window.innerWidth <= 720) {
     document.body.appendChild(document.getElementById('playingControls'))
     document.body.appendChild(document.getElementById('rightContainer'))
     document.body.appendChild(document.getElementById('buttons'))
+    document.body.appendChild(document.getElementById('leftContainer'))
     document.body.appendChild(document.getElementById('sectionSliders'))
+    document.getElementById('playingText').appendChild(document.getElementById('playingIcon'))
+    document.getElementById('playingText').appendChild(document.getElementById('ptSinger'))
+    document.getElementById('playingText').appendChild(document.getElementById('ptTitle'))
 }
