@@ -179,35 +179,6 @@ rightSlide(1)
 
 
 // ANDROID SECTIONS
-// function sectionOne(){
-//         document.getElementById("buttons").style.opacity = '0%'
-//         document.getElementById("rightContainer").style.opacity = '0%'
-//     setTimeout(() => {
-//         document.getElementById("leftContainer").style.display = 'flex'
-//         document.getElementById("rightContainer").style.display = 'none'
-//         document.getElementById("buttons").style.display = 'none'
-//     }, 200);
-//     setTimeout(() => {
-//         document.getElementById("leftContainer").style.opacity = '100%'
-//     }, 400);
-// }
-// function sectionTwo(){
-//         document.getElementById("leftContainer").style.opacity = '0%'
-//     setTimeout(() => {
-//         document.getElementById("leftContainer").style.display = 'none'
-//         document.getElementById("rightContainer").style.display = 'flex'
-//         document.getElementById("buttons").style.display = 'flex'
-//     }, 200);
-//     setTimeout(() => {
-//         document.getElementById("rightContainer").style.opacity = '100%'
-//         document.getElementById("buttons").style.opacity = '100%'
-//     }, 400);
-// }
-// if (window.innerWidth <= 720) {
-//     sectionOne()
-// }
-
-// ANDROID SECTIONS
 function sectionOne(){
     document.getElementById("buttons").style.width = '0'
 document.getElementById("rightContainer").style.width = '0'
