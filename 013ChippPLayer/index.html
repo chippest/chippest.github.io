@@ -3,84 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chipp Player</title>
+    <title>Chipp's Player</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/d8baa3cb86.js" crossorigin="anonymous"></script>
 </head>
 <body onresize="refresh()">
-    <div id="bodyContainer">
+    
+    
+    <div id="bodyContainer" class="column">
 
-        <div id="leftContainer" class="column">
-            <div id="playingInfo" class="column">
-
-                <!-- SONG TITLE-INFORMATION -->
-                <img src="https://lets.linkpc.net/icons/1.jpg" id="playingIcon">
-                <div id="playingText" class="column">
-                    <strong id="ptTitle">Thousand Miles</strong>
-                    <span id="ptSinger">the Kid LAROI</span>
-                </div>
-
-                <!-- AUDIO FUNCTIONS -->
-                <div id="playingControls" class="row">
-                    <button id="shufButton"><i class='fa-solid fa-shuffle'></i></button>
-                    <button id="prevButton" onclick="prev()"><i class='fa-solid fa-backward-step'></i></button>
-                    <button id="playButton" onclick="document.getElementById('audioFile').play()"><i class='fa-solid fa-play'></i></button>
-                    <button id="nextButton" onclick="next()"><i class='fa-solid fa-forward-step'></i></button>
-                    <button id="mutebutton"><i class='fa-solid fa-volume-high'></i></button>
-                </div>
-
-                <!-- AUDIO FILE -->
-                <div id="playingSeekBar" class="row">
-                    <audio id="audioFile" src="https://lets.linkpc.net/songs/1.mp3" controls controlsList="nodownload noplaybackrate"></audio>
-                </div>
-
-
-            </div>
-        </div>
-
-        <div id="rightContainer" class="column">
             <div id="rcont" class="row">
-                <div class="rcontmain">
-                    info will be updated soon! check out the other sections :D
+                <div id="leftContainer" class="column">
+                    <div id="playingInfo" class="column">
+        
+                        <!-- SONG TITLE-INFORMATION -->
+                        <img src="https://lets.linkpc.net/icons/1.jpg" id="playingIcon">
+                        <div id="playingText" class="column">
+                            <strong id="ptTitle">Thousand Miles</strong>
+                            <span id="ptSinger">the Kid LAROI</span>
+                        </div>    
+                        <div id="audioDiv" class="column">   
+                            <!-- AUDIO FILE -->
+                            <div id="playingSeekBar" class="row">
+                                <audio id="audioFile" src="https://lets.linkpc.net/songs/1.mp3" controls controlsList="nodownload noplaybackrate"></audio>
+                                <button id="sectionOne"><i class="fa-solid fa-sliders"></i></button>
+                            </div>
+            
+                            <!-- AUDIO FUNCTIONS -->
+                            <div id="playingControls" class="row">
+                                <button id="shufButton"><i class='fa-solid fa-shuffle'></i></button>
+                                <button id="prevButton"><i class='fa-solid fa-backward-step'></i></button>
+                                <button id="playButton"><i class='fa-solid fa-play'></i></button>
+                                <button id="nextButton"><i class='fa-solid fa-forward-step'></i></button>
+                                <button id="mutebutton"><i class='fa-solid fa-volume-high'></i></button>
+                            </div>
+                        </div> 
+        
+                    </div>
                 </div>
                 <div class="rcontmain row songAlbum">
-                    <div id="songList" class="column"></div>
+                    <div id="songList" class="column">
+                    </div>
                     <span class="songVert">Select The Song Of Your Choice</span>
                 </div>
-                <div class="rcontmain">
-                    <form id="uploadForm" action="" class="column">
-                        Song Details
-                        <input type="text" name="songNameIP" id="songNameIP" placeholder="Song Name">
-                        <input type="text" name="singerNameIP" id="singerNameIP" placeholder="Singer Name">
-                        <label for="avatarIP">
-                            Select Song Cover
-                            <input type="file" name="avatarIP" id="avatarIP">
-                        </label>
-                        <label for="accentIP">
-                            Select Accent Color
-                            <input type="color" name="accentIP" id="accentIP">
-                        </label>
-                        <input type="number" name="songIDIP" id="songIDIP" placeholder="Song ID">
-                        Uploader Details
-                        <input type="text" name="uploaderUserIP" id="uploaderUserIP" placeholder="Username">
-                        <input type="text" name="uploaderIDIP" id="uploaderIDIP" placeholder="ID Code">
-                        <input type="button" value="Upload">
-                    </form>
-                </div>
             </div>
-        </div>
 
-        <div id="buttons" class="column">
-            <button onclick="rightSlide(0)"><i class="fa-solid fa-circle-info"></i></button>
-            <button onclick="rightSlide(1)"><i class="fa-solid fa-rectangle-list"></i></button>
-            <button onclick="rightSlide(2)"><i class="fa-solid fa-user"></i></button>
-        </div>
         
-        <div id="sectionSliders">
-            <div id="sectionSelected"></div>
-            <button id="sectionOne" onclick="sectionOne()"><i class="fa-solid fa-circle-play"></i></button>
-            <button id="sectionTwo" onclick="sectionTwo()"><i class="fa-solid fa-sliders"></i></button>
-        </div>
 
     </div>
 
