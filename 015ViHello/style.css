@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+*{
+    font-family: "Pixelify Sans", sans-serif;
+}
+.row{
+    display: flex;flex-direction: row;
+}
+.column{
+    display: flex;flex-direction: column;
+}
+.centre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body{
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+#blur{
+    filter: blur(1.5rem);
+    font-size: 5rem;
+    transition: 1s all;
+    padding: 1rem;
+    border: 1rem solid black;
+    background-color: #000000da;
+}
+.selectionContainer{
+    width: 100%;
+    position: relative;
+    background-color: green;
+}
+#summoner{
+    cursor: pointer;
+    width: 100%;
+    font-size: 2rem;
+}
+#visibilities{
+    top: 100%;
+    position: absolute;
+    width: 100%;
+}
+.close{
+    overflow: hidden;
+    height: 0;
+    height: 0;
+    transition: 0.3s all;
+    background-color: aqua;
+    width: 100%;
+}
+.open{
+    height: 2rem;
+    cursor: pointer;
+}
+.locked{
+    background-color: gray;
+    filter: blur(0.1rem);
+    pointer-events: none;
+}
+#error{
+    display: none;
+    background-color: darkred;
+    /* z-index: 1; */
+}
+.hehe{
+    position: absolute;
+    z-index: 3;
+    gap: 0.5rem;
+}
+.lol{
+    display: none;
+    font-size: 4rem;
+    color: darkred;
+}
+.fr{
+    /* position: absolute; */
+    display: none;
+    font-size: 2rem;
+    top: 100%;
+    z-index: -3;
+    color: darkred;
+}
+#bgr{
+    z-index: -3;
+    position: absolute;
+    width: 100vw;
+    background-color: darkred;
+    height: 100vh;
+    border-radius: 100%;
+    bottom: -75%;
+    filter: blur(10rem);
+    display: none;
+}
