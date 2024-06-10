@@ -12,6 +12,8 @@ let sButton = document.getElementById('shufButton')
 let shuffled = false
 let rButton = document.getElementById('repButton')
 let onRepeat = false
+let autoButton = document.getElementById('autoButton')
+let autoPlay = true
 let volSlider = document.getElementById('volSlider')
 let volOn = false
 let prevButton = document.getElementById('prevButton')
@@ -178,20 +180,24 @@ function shuffle(){
 }
 
 // MUSIC RANGE UPDATE
-volume.addEventListener("change", function(e) {
-        audioFile.volume = e.currentTarget.value / 100;
-        audioFile.muted = false
-        volumeOn = true
-        volSectionButton.innerHTML = "<i class='fa-solid fa-volume-high'>"
-        volSectionButton.style.color = ''
-    }
-)
+volume.onchange = function() {
+    audioFile.volume = volume.value / 100;
+    audioFile.muted = false
+    volumeOn = true
+    volSectionButton.innerHTML = "<i class='fa-solid fa-volume-high'>"
+    volSectionButton.style.color = ''
+}
 audioSlider.onchange = function(){
     audioFile.currentTime = audioSlider.value
 }
 audioFile.onloadedmetadata = function(){
     audioSlider.max = audioFile.duration
     maxTime.innerText = fmtTime(audioFile.duration)
+}
+audioFile.onended = function(){
+    if (autoPlay) {
+        next()
+    }
 }
 
 // MUSIC CONTROLLERS
@@ -216,8 +222,21 @@ rButton.onclick = function(){
         audioFile.loop = false
         rButton.style.color = ''
     }
+    autoPlay = false
+    autoButton.style.color = 'white'
     shuffled = false
     sButton.style.color = ''
+}
+autoButton.onclick = function(){
+    if (!autoPlay) {
+        autoPlay = true
+        autoButton.style.color = 'var(--iconAccent)'
+        onRepeat = false
+        rButton.style.color = ''
+    }else if(autoPlay){
+        autoPlay = false
+        autoButton.style.color = 'white'
+    }
 }
 upButton.onclick = function(){
     volOn = false
@@ -259,6 +278,7 @@ muteButton.onclick = function(){
         volSectionButton.style.color = ''
     }
 }
+
 
 // MUSIC UPDATE
 function Song(id, fullname, name, singer, uploader, accent, avatar, audio) {
