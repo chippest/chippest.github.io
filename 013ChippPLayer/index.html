@@ -25,17 +25,33 @@
                         <div id="audioDiv" class="column">   
                             <!-- AUDIO FILE -->
                             <div id="playingSeekBar" class="row">
-                                <audio id="audioFile" src="https://lets.linkpc.net/songs/1.mp3" controls controlsList="nodownload noplaybackrate"></audio>
+                                <div id="audioB" class="column">
+                                    <div class="audioC row">
+                                        <button id="shufButton"><i class="fa-solid fa-shuffle"></i></button>
+                                        <button id="repButton"><i class="fa-solid fa-repeat"></i></button>
+                                    </div>
+                                    <div class="audioC audioO row">
+                                        <audio id="audioFile" src="https://lets.linkpc.net/songs/1.mp3" controlsList="nodownload noplaybackrate"></audio>
+                                        <span id="currentTime">00:00</span>
+                                        <input type="range" name="" id="audioSlider" class="input" value="0">
+                                        <span id="totalTime">00:00</span>
+                                    </div>
+                                    <div class="audioC">
+                                        <i class="fa-solid fa-volume-low" id="mutebutton"></i>
+                                        <input type="range" class="input" name="" id="volSlider" value="100">
+                                        <i class="fa-solid fa-volume-high"></i>
+                                    </div>
+                                </div>
                                 <button id="sectionOne"><i class="fa-solid fa-sliders"></i></button>
                             </div>
             
                             <!-- AUDIO FUNCTIONS -->
                             <div id="playingControls" class="row">
-                                <button id="shufButton"><i class='fa-solid fa-shuffle'></i></button>
+                                <button id="upButton"><i class="fa-solid fa-chevron-up"></i></button>
                                 <button id="prevButton"><i class='fa-solid fa-backward-step'></i></button>
                                 <button id="playButton"><i class='fa-solid fa-play'></i></button>
                                 <button id="nextButton"><i class='fa-solid fa-forward-step'></i></button>
-                                <button id="mutebutton"><i class='fa-solid fa-volume-high'></i></button>
+                                <button id="volSectionButton"><i class='fa-solid fa-volume-high'></i></button>
                             </div>
                         </div> 
         

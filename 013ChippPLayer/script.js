@@ -4,12 +4,21 @@ let songNumber = 0
 let musicOn = false
 let section = document.getElementById('sectionOne')
 let playerOn = true
+let seekVisible = true
+let audioC = document.querySelectorAll('.audioC')
+let upButton = document.getElementById('upButton')
+let extOn = false
 let sButton = document.getElementById('shufButton')
 let shuffled = false
+let rButton = document.getElementById('repButton')
+let onRepeat = false
+let volSlider = document.getElementById('volSlider')
+let volOn = false
 let prevButton = document.getElementById('prevButton')
 let pButton = document.getElementById("playButton")
 let nextButton = document.getElementById('nextButton')
-let mButton = document.getElementById("mutebutton")
+let volSectionButton = document.getElementById("volSectionButton")
+let muteButton = document.getElementById('mutebutton')
 let volumeOn = true
 let rCont = document.getElementById(`rcont`)
 let root = document.querySelector(`:root`)
@@ -17,10 +26,13 @@ let plicon = document.getElementById('playingIcon')
 let pltitle = document.getElementById('ptTitle')
 let plsgr = document.getElementById('ptSinger')
 let plbg = document.body
+let currentTime = document.getElementById('currentTime')
+let audioSlider = document.getElementById('audioSlider')
+let maxTime = document.getElementById('totalTime')
+let volume = document.getElementById('volSlider');
 function refresh() {
     location.reload()
 }
-
 
 // SONG LIBRARY
 let songFull = ['Thousand Miles', 'Talk To You', 'Hearts', 'Paper Planes', 'Atlantis', 'Sway To My Beat In Cosmos', 'Divine', 'Hope Is the Thing With Feathers', 'LOVE or HATE?', 'Pompeii', 'Invasion - Metal Version', 'Divide My Heart', 'The Lazy Song', 'Final Battle', 'SequÊncia MalÉfica 1.0', 'Bolinha De Queijo', 'Automotivo InsÔnia 1.0 - Slowed + Reverb', 'Me Papa Que É Pop']
@@ -60,21 +72,53 @@ for (let i = 0; i < songFull.length; i++) {
 }
 let songCont = document.getElementById('songList')
 
+// CONST FUNCTIONS
+const fmtTime = s => {
+    const d = new Date(0);
+    if (s > 0) {
+        d.setSeconds(s % 60);
+        d.setMinutes(s / 60);
+    }
+    return d.toISOString().slice(14, 19);
+}
+const sleep = (time) => {
+    return new Promise((resolve) => setTimeout(resolve, time))
+}
 
-
-
-
-
-
-
-
-
+// VOLUME CONTROL SWITCHER
+function upperSectionSlider(x){
+    for (let i = 0; i < audioC.length; i++) {
+        audioC[i].className = 'audioC'
+        audioC[i].classList.add(`audioD${x}`)
+    }
+    let j = x - 1
+    if (j < 0) {
+        j = 1
+    }
+    audioC[j].classList.add('audioO')
+}
+function rotateButtons(){
+    if (!volOn | !extOn) {
+        upperSectionSlider(0)
+    }
+    if (volOn) {
+        upperSectionSlider(3)
+    }
+    if (extOn) {
+        upperSectionSlider(1)
+    }
+}
 
 // MUSIC FUNCTIONS
 function playSong(){
     audioFile.play()
     pButton.innerHTML = "<i class='fa-solid fa-pause'></i>"
     musicOn = true
+    audioSlider.max = audioFile.duration
+    setInterval(() => {
+        audioSlider.value = audioFile.currentTime
+        currentTime.innerText = fmtTime(audioFile.currentTime)
+    }, 1000);
 }
 function pauseSong(){
     audioFile.pause()
@@ -83,13 +127,15 @@ function pauseSong(){
 }
 function mute(){
     audioFile.muted = true
-    mButton.innerHTML = "<i class='fa-solid fa-volume-xmark'></i>"
+    volSectionButton.innerHTML = "<i class='fa-solid fa-volume-xmark'></i>"
     volumeOn = false
+    volume.value = 0
 }
 function unmute(){
     audioFile.muted = false
-    mButton.innerHTML = "<i class='fa-solid fa-volume-high'>"
+    volSectionButton.innerHTML = "<i class='fa-solid fa-volume-high'>"
     volumeOn = true
+    volume.value = 100
 }
 function next(){
     if(!shuffled){
@@ -131,23 +177,56 @@ function shuffle(){
     songNumber = y
 }
 
-
-
-
-
-
-
-
+// MUSIC RANGE UPDATE
+volume.addEventListener("change", function(e) {
+        audioFile.volume = e.currentTarget.value / 100;
+        audioFile.muted = false
+        volumeOn = true
+        volSectionButton.innerHTML = "<i class='fa-solid fa-volume-high'>"
+        volSectionButton.style.color = ''
+    }
+)
+audioSlider.onchange = function(){
+    audioFile.currentTime = audioSlider.value
+}
+audioFile.onloadedmetadata = function(){
+    audioSlider.max = audioFile.duration
+    maxTime.innerText = fmtTime(audioFile.duration)
+}
 
 // MUSIC CONTROLLERS
 sButton.onclick = function(){
     if(shuffled){
         shuffled = false
-        sButton.style.color = 'white'
+        sButton.style.color = ''
     } else if(!shuffled){
         shuffled = true
         sButton.style.color = 'var(--iconAccent)'
     }
+    onRepeat = false
+    rButton.style.color = ''
+}
+rButton.onclick = function(){
+    if(!onRepeat){
+        onRepeat = true
+        audioFile.loop = true
+        rButton.style.color = 'var(--iconAccent)'
+    } else if(onRepeat){
+        onRepeat = false
+        audioFile.loop = false
+        rButton.style.color = ''
+    }
+    shuffled = false
+    sButton.style.color = ''
+}
+upButton.onclick = function(){
+    volOn = false
+    if (extOn) {
+        extOn = false
+    }else if(!extOn){
+        extOn = true
+    }
+    rotateButtons()
 }
 prevButton.onclick = function(){
     prev()
@@ -162,20 +241,24 @@ pButton.onclick = function(){
 nextButton.onclick = function(){
     next()
 }
-mButton.onclick = function(){
+volSectionButton.onclick = function(){
+    extOn = false
+    if (volOn) {
+        volOn = false
+    }else if(!volOn){
+        volOn = true
+    }
+    rotateButtons()
+}
+muteButton.onclick = function(){
     if(volumeOn){
         mute()
-        mButton.style.color = 'var(--iconAccent)'
+        volSectionButton.style.color = 'var(--iconAccent)'
     } else if(!volumeOn){
         unmute()
-        mButton.style.color = 'white'
+        volSectionButton.style.color = ''
     }
 }
-
-
-
-
-
 
 // MUSIC UPDATE
 function Song(id, fullname, name, singer, uploader, accent, avatar, audio) {
@@ -230,10 +313,6 @@ function changePlayerInfo(x){
     document.getElementById(`song${x.id}`).classList.add('songNow')
 }
 
-
-
-
-
 // ANDROID SECTIONS
 let trasongs = document.querySelectorAll('.songItem')
 section.onclick = function(){
@@ -275,12 +354,7 @@ if (window.innerWidth <= 1000) {
     document.body.appendChild(document.getElementById('audioDiv'))
 }
 
-
-
 // TEXT TRANSITIONS
-const sleep = (time) => {
-    return new Promise((resolve) => setTimeout(resolve, time))
-}
 function textUpdate(){
 let hold1 = document.getElementById('ptTitle')
 let hold2 = songList[songNumber].name
