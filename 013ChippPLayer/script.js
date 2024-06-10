@@ -35,7 +35,7 @@ function refresh() {
 }
 
 // SONG LIBRARY
-let songFull = ['Thousand Miles', 'Talk To You', 'Hearts', 'Paper Planes', 'Atlantis', 'Sway To My Beat In Cosmos', 'Divine', 'Hope Is the Thing With Feathers', 'LOVE or HATE?', 'Pompeii', 'Invasion - Metal Version', 'Divide My Heart', 'The Lazy Song', 'Final Battle', 'SequÊncia MalÉfica 1.0', 'Bolinha De Queijo', 'Automotivo InsÔnia 1.0 - Slowed + Reverb', 'Me Papa Que É Pop']
+let songFull = ['Thousand Miles', 'Talk To You', 'Hearts', 'Paper Planes', 'Atlantis', 'Sway To My Beat In Cosmos', 'Divine', 'Hope Is the Thing With Feathers', 'LOVE or HATE?', 'Pompeii', 'Invasion - Metal Version', 'Divide My Heart', 'The Lazy Song', 'Final Battle', 'SequÊncia MalÉfica 1.0', 'Bolinha De Queijo', 'Automotivo InsÔnia 1.0 - Slowed + Reverb', 'Me Papa Que É Pop', 'Daddy ! Daddy ! Do !', 'Sentimental Crisis', '風に吹かれて']
 let songID = []
 for (let i = 1; i < songFull.length + 1; i++) {
     songID.push(i)
@@ -51,9 +51,9 @@ for (let i = 0; i < songFull.length; i++) {
         songName.push(first)
     }
 }
-let singerName = [`the Kid LAROI`, 'Zach B', 'Zach B', 'M.I.A.', 'Seafret', 'Chevy', 'Krishnahazar', 'Chevy', '前島麻由', 'Bastille', 'Rocco Minichiello', 'Naoki', 'Bruno Mars', 'RJ Pasin', ' RXPOSO99', 'Mc Gw', 'Phonk Killer', 'Dj Brunin XM & Mc Lullu']
-let uploader = [`chipp`, 'chipp', 'chipp', 'Maxi', 'Monkey', 'Mahdi', 'Hell', 'Mahdi', 'Lunaria', 'Mahdi', 'Mahdi', 'Mahdi', 'Mahdi', 'Wazi', 'Wazi', 'Wazi', 'Wazi', 'Wazi']
-let accent = [`#978E75`, `#c264a6`, '#272571', '#715755', '#564E4B', '#846699', '#AD825D', '#72556B', '#6F4C4C', '#5C402B', '#48141B', '#84796A', '#F7D980', '#0B0B0B', '#764C7B', '#1C1C1B', '#232323', '#66747F']
+let singerName = [`the Kid LAROI`, 'Zach B', 'Zach B', 'M.I.A.', 'Seafret', 'Chevy', 'Krishnahazar', 'Chevy', '前島麻由', 'Bastille', 'Rocco Minichiello', 'Naoki', 'Bruno Mars', 'RJ Pasin', ' RXPOSO99', 'Mc Gw', 'Phonk Killer', 'Dj Brunin XM', ' Masayuki Suzuki', 'halca', '福原 遥']
+let uploader = [`chipp`, 'chipp', 'chipp', 'Maxi', 'Monkey', 'Mahdi', 'Hell', 'Mahdi', 'Lunaria', 'Mahdi', 'Mahdi', 'Mahdi', 'Mahdi', 'Wazi', 'Wazi', 'Wazi', 'Wazi', 'Wazi', 'Lunaria', 'Lunaria', 'Lunaria']
+let accent = [`#978E75`, `#c264a6`, '#272571', '#715755', '#564E4B', '#846699', '#AD825D', '#72556B', '#6F4C4C', '#5C402B', '#48141B', '#84796A', '#F7D980', '#0B0B0B', '#764C7B', '#1C1C1B', '#232323', '#66747F', '#5E3577', '#C8DAE3', '#BAD1E2']
 
 let jpglink = `https://lets.linkpc.net/icons/`
 let avatar = []
@@ -119,6 +119,7 @@ function playSong(){
         audioSlider.value = audioFile.currentTime
         currentTime.innerText = fmtTime(audioFile.currentTime)
     }, 1000);
+    songList[songNumber].style.display = 'none'
 }
 function pauseSong(){
     audioFile.pause()
