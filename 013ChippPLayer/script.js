@@ -119,7 +119,6 @@ function playSong(){
         audioSlider.value = audioFile.currentTime
         currentTime.innerText = fmtTime(audioFile.currentTime)
     }, 1000);
-    songList[songNumber].style.display = 'none'
 }
 function pauseSong(){
     audioFile.pause()
