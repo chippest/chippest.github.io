@@ -1,3 +1,22 @@
+<?php
+    include("database.php");
+    $songID= array();
+    $songName = array();
+    $singerName = array();
+    $uploader = array();
+    $accent = array();
+    $query = "select * from songs";
+    $result = mysqli_query($conn, $query);
+    while($row = mysqli_fetch_assoc($result)){
+        array_push($songID, $row["songID"]);
+        array_push($songName, $row["songName"]);
+        array_push($singerName, $row["singerName"]);
+        array_push($uploader, $row["uploader"]);
+        array_push($accent, $row["accent"]);
+    }
+    mysqli_close($conn);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +27,7 @@
     <script src="https://kit.fontawesome.com/d8baa3cb86.js" crossorigin="anonymous"></script>
 </head>
 <body onresize="refresh()">
+
     
     
     <div id="bodyContainer" class="column">
@@ -17,7 +37,7 @@
                     <div id="playingInfo" class="column">
         
                         <!-- SONG TITLE-INFORMATION -->
-                        <img src="https://lets.linkpc.net/icons/1.jpg" id="playingIcon">
+                        <img src="https://lets.linkpc.net/music/jpg/1.jpg" id="playingIcon">
                         <div id="playingText" class="column">
                             <strong id="ptTitle">Thousand Miles</strong>
                             <span id="ptSinger">the Kid LAROI</span>
@@ -65,10 +85,23 @@
                 </div>
             </div>
 
-        
-
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        <?php
+        $js_array = json_encode($songID);
+        echo "let songID = ". $js_array . ";";
+        $js_array = json_encode($songName);
+        echo "let songFull = ". $js_array . ";";
+        $js_array = json_encode($singerName);
+        echo "let singerName = ". $js_array . ";";
+        $js_array = json_encode($uploader);
+        echo "let uploader = ". $js_array . ";";
+        $js_array = json_encode($accent);
+        echo "let accent = ". $js_array . ";";
+        ?>
+    </script>
+    <script src="script.js">
+    </script>
 </body>
 </html>
