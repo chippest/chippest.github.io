@@ -2,7 +2,14 @@ import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import {
+  HashRouter,
+  Link,
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
 import { Page } from "./Classes/Pages";
 import { Home } from "./Pages/Home";
 import { About } from "./Pages/About";
@@ -16,50 +23,72 @@ function App() {
     new Page("Contact", "Contact page"),
     new Page("Projects", "Projects page"),
   ];
+  let pageTitles = pages.map((page) => page.title.toLowerCase());
   const [currentPage, setCurrentPage] = useState(null);
 
+  return (
+    <HashRouter>
+      <Content
+        pages={pages}
+        pageTitles={pageTitles}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+      />
+    </HashRouter>
+  );
+}
+
+function Content({ pages, pageTitles, setCurrentPage, currentPage }) {
+  const location = useLocation();
+
   useEffect(() => {
-    const path = window.location.pathname.substring(1);
+    const path = location.pathname.substring(1);
     setCurrentPage(path);
-  }, []);
+  }, [location, setCurrentPage]);
 
   return (
-    <BrowserRouter>
-      <div className="main">
-        {pages.map((page, index) => (
-          <div key={index}>
-            <Link to={`/${page.title.toLowerCase()}`}>
-              <button
-                onClick={() => {
-                  setCurrentPage(page.title.toLowerCase());
-                }}
-              >
-                {page.title}
-              </button>
-            </Link>
-            <Routes>
-              <Route
-                path={`/${page.title.toLowerCase()}`}
-                element={
-                  <div>
-                    {page.title.toLowerCase() === currentPage &&
-                    currentPage === "home" ? (
-                      <Home />
-                    ) : currentPage === "about" ? (
-                      <About />
-                    ) : currentPage === "contact" ? (
-                      <Contact />
-                    ) : (
-                      currentPage === "projects" && <Projects />
-                    )}
-                  </div>
-                }
-              />
-            </Routes>
-          </div>
-        ))}
-      </div>
-    </BrowserRouter>
+    <div className="main">
+      {pages.map((page, index) => (
+        <div key={index}>
+          <Link to={`/${page.title.toLowerCase()}`}>
+            <button
+              onClick={() => {
+                setCurrentPage(page.title.toLowerCase());
+              }}
+            >
+              {page.title}
+            </button>
+          </Link>
+          <Routes>
+            <Route
+              path={`/${page.title.toLowerCase()}`}
+              element={
+                <div>
+                  {page.title.toLowerCase() === currentPage &&
+                  currentPage === "home" ? (
+                    <Home />
+                  ) : currentPage === "about" ? (
+                    <About />
+                  ) : currentPage === "contact" ? (
+                    <Contact />
+                  ) : (
+                    currentPage === "projects" && <Projects />
+                  )}
+                </div>
+              }
+            />
+            <Route
+              path="*"
+              element={
+                pageTitles.includes(location.pathname.slice(1)) ? null : (
+                  <Navigate to="/" />
+                )
+              }
+            />
+          </Routes>
+        </div>
+      ))}
+    </div>
   );
 }
 
