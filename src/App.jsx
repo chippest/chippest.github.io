@@ -7,6 +7,7 @@ import {
   Route,
   Routes,
   useLocation,
+  useNavigate,
 } from "react-router-dom";
 import { Page } from "./Classes/Pages";
 import { Home } from "./Pages/Home";
@@ -38,11 +39,18 @@ function App() {
 
 function Content({ pages, pageTitles, setCurrentPage, currentPage }) {
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const path = location.pathname.substring(1);
     setCurrentPage(path);
   }, [location, setCurrentPage]);
+
+  useEffect(() => {
+    if (currentPage === null) {
+      navigate("/");
+    }
+  }, [currentPage, navigate]);
 
   return (
     <div className="main">
@@ -51,7 +59,9 @@ function Content({ pages, pageTitles, setCurrentPage, currentPage }) {
           <Link to={`/${page.title.toLowerCase()}`}>
             <button
               onClick={() => {
-                setCurrentPage(page.title.toLowerCase());
+                currentPage === page.title.toLowerCase()
+                  ? setCurrentPage(null)
+                  : setCurrentPage(page.title.toLowerCase());
               }}
             >
               {page.title}
