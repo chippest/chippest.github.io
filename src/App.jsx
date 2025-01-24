@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import {
-  HashRouter,
   Link,
   Navigate,
   Route,
@@ -24,27 +23,13 @@ function App() {
   ];
   let pageTitles = pages.map((page) => page.title.toLowerCase());
   const [currentPage, setCurrentPage] = useState(null);
-
-  return (
-    <HashRouter>
-      <Content
-        pages={pages}
-        pageTitles={pageTitles}
-        setCurrentPage={setCurrentPage}
-        currentPage={currentPage}
-      />
-    </HashRouter>
-  );
-}
-
-function Content({ pages, pageTitles, setCurrentPage, currentPage }) {
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
     const path = location.pathname.substring(1);
     setCurrentPage(path);
-  }, [location, setCurrentPage]);
+  }, [location]);
 
   useEffect(() => {
     if (currentPage === null) {
@@ -52,51 +37,67 @@ function Content({ pages, pageTitles, setCurrentPage, currentPage }) {
     }
   }, [currentPage, navigate]);
 
+  useEffect(() => {
+    if (currentPage) {
+      const timer = setTimeout(() => {
+        const pageElement = document.querySelector(`.page.${currentPage}`);
+        if (pageElement) {
+          pageElement.classList.add("open");
+        }
+      }, 50); // Delay in milliseconds
+      return () => clearTimeout(timer);
+    }
+  }, [currentPage]);
+
   return (
-    <div className="main">
-      {pages.map((page, index) => (
-        <div key={index}>
-          <Link to={`/${page.title.toLowerCase()}`}>
-            <button
-              onClick={() => {
-                currentPage === page.title.toLowerCase()
-                  ? setCurrentPage(null)
-                  : setCurrentPage(page.title.toLowerCase());
-              }}
-            >
-              {page.title}
-            </button>
-          </Link>
-          <Routes>
-            <Route
-              path={`/${page.title.toLowerCase()}`}
-              element={
-                <div>
-                  {page.title.toLowerCase() === currentPage &&
-                  currentPage === "home" ? (
-                    <Home />
-                  ) : currentPage === "about" ? (
-                    <About />
-                  ) : currentPage === "contact" ? (
-                    <Contact />
-                  ) : (
-                    currentPage === "projects" && <Projects />
-                  )}
-                </div>
-              }
-            />
-            <Route
-              path="*"
-              element={
-                pageTitles.includes(location.pathname.slice(1)) ? null : (
-                  <Navigate to="/" />
-                )
-              }
-            />
-          </Routes>
+    <>
+      <div className="app">
+        <div className="pages">
+          {pages.map((page, index) => (
+            <>
+              <Link to={`/${page.title.toLowerCase()}`}>
+                <button
+                  onClick={() => {
+                    currentPage === page.title.toLowerCase()
+                      ? setCurrentPage(null)
+                      : setCurrentPage(page.title.toLowerCase());
+                  }}
+                >
+                  {page.title}
+                </button>
+              </Link>
+              <Routes>
+                <Route
+                  path={`/${page.title.toLowerCase()}`}
+                  element={
+                    <div className={`page ${page.title.toLowerCase()}`}>
+                      {page.title.toLowerCase() === currentPage &&
+                      currentPage === "home" ? (
+                        <Home />
+                      ) : currentPage === "about" ? (
+                        <About />
+                      ) : currentPage === "contact" ? (
+                        <Contact />
+                      ) : (
+                        currentPage === "projects" && <Projects />
+                      )}
+                    </div>
+                  }
+                />
+                <Route
+                  path="*"
+                  element={
+                    pageTitles.includes(location.pathname.slice(1)) ? null : (
+                      <Navigate to="/" />
+                    )
+                  }
+                />
+              </Routes>
+            </>
+          ))}
         </div>
-      ))}
-    </div>
+      </div>
+    </>
   );
 }
 
