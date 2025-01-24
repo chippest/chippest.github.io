@@ -16,15 +16,17 @@ function App() {
   ];
   let pageTitles = pages.map((page) => page.title.toLowerCase());
   const [currentPage, setCurrentPage] = useState(null);
-  const [lastPage, setLastPage] = useState("home");
+  const [lastPage, setLastPage] = useState(null);
 
   return (
     <>
       <div className="app">
         <div className="pages">
           {pages.map((page, index) => {
-            const rendered = false;
             const pageL = page.title.toLowerCase();
+            let current = currentPage === pageL;
+            let last = lastPage === pageL;
+            let render = true;
             return (
               <>
                 <button
@@ -36,6 +38,32 @@ function App() {
                 >
                   {page.title}
                 </button>
+                {(current || last || render) && (
+                  <div className={`page ${current && "open"}`}>
+                    {page.title.toLowerCase() === currentPage &&
+                    currentPage === "home" ? (
+                      <Home />
+                    ) : currentPage === "about" ? (
+                      <About />
+                    ) : currentPage === "contact" ? (
+                      <Contact />
+                    ) : (
+                      currentPage === "projects" && <Projects />
+                    )}
+                  </div>
+                )}
+                {/* <div className={`page ${page.title.toLowerCase()}`}>
+                  {page.title.toLowerCase() === currentPage &&
+                  currentPage === "home" ? (
+                    <Home />
+                  ) : currentPage === "about" ? (
+                    <About />
+                  ) : currentPage === "contact" ? (
+                    <Contact />
+                  ) : (
+                    currentPage === "projects" && <Projects />
+                  )}
+                </div> */}
               </>
             );
           })}
