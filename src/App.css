@@ -36,7 +36,11 @@
       cursor: pointer;
       border: none;
       padding: 1rem;
-      background: linear-gradient(to right, #8e2de2, #4a00e0);
+      background: linear-gradient(
+        to right,
+        var(--gradient-start),
+        var(--gradient-end)
+      );
       color: ghostwhite;
       overflow: hidden;
       transition: all 0.4s cubic-bezier(0.5, 1, 0.8, 1);

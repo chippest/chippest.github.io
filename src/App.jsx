@@ -15,10 +15,10 @@ import { Projects } from "./Pages/Projects";
 
 function App() {
   const pages = [
-    new Page("Home", "Home page"),
-    new Page("About", "About page"),
-    new Page("Contact", "Contact page"),
-    new Page("Projects", "Projects page"),
+    new Page("Home", "Home page", "#8e2de2", "#4a00e0"),
+    new Page("About", "About page", "#ff7e5f", "#feb47b"),
+    new Page("Contact", "Contact page", "#43cea2", "#185a9d"),
+    new Page("Projects", "Projects page", "#ff6a00", "#ee0979"),
   ];
   const [currentPage, setCurrentPage] = useState(null);
   const [renderedPage, setRenderedPage] = useState(null);
@@ -104,6 +104,10 @@ function App() {
               <button
                 onClick={() => handlePageChange(page.title)}
                 className={fullButtons && "full"}
+                style={{
+                  "--gradient-start": page.gradientStart,
+                  "--gradient-end": page.gradientEnd,
+                }}
               >
                 <span>{page.title}</span>
               </button>
