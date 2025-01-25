@@ -23,6 +23,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState(null);
   const [renderedPage, setRenderedPage] = useState(null);
   const [fullButtons, setFullButtons] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -36,14 +37,18 @@ function App() {
         if (pageElement) {
           pageElement.classList.add("open");
         }
+        setIsTransitioning(false);
       }, 500); // Delay before adding the "open" class
     } else {
       setCurrentPage(null);
       setRenderedPage(null);
+      setIsTransitioning(false);
     }
   }, [location]);
 
   const handlePageChange = (pageTitle) => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
     const newPage = pageTitle.toLowerCase();
     if (currentPage === newPage) {
       // If the current page is already rendered, unrender it and navigate to default URL
@@ -55,6 +60,7 @@ function App() {
           setCurrentPage(null);
           setFullButtons(false);
           navigate("/");
+          setIsTransitioning(false);
         }, 500); // Delay to match the CSS transition
       }
     } else {
@@ -76,6 +82,7 @@ function App() {
               if (newPageElement) {
                 newPageElement.classList.add("open");
               }
+              setIsTransitioning(false);
             }, 100); // Delay before adding the "open" class
           }, 500); // Delay to match the CSS transition
         }
@@ -89,6 +96,7 @@ function App() {
           if (newPageElement) {
             newPageElement.classList.add("open");
           }
+          setIsTransitioning(false);
         }, 500); // Delay before adding the "open" class
       }
     }
