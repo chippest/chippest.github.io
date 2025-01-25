@@ -89,7 +89,7 @@ function App() {
           if (newPageElement) {
             newPageElement.classList.add("open");
           }
-        }, 100); // Delay before adding the "open" class
+        }, 500); // Delay before adding the "open" class
       }
     }
   };
