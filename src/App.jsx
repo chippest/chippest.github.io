@@ -33,6 +33,9 @@ function App() {
     if (pages.map((page) => page.title.toLowerCase()).includes(path)) {
       setCurrentPage(path);
       setRenderedPage(path);
+      setAppBackgroundColor(path);
+      setFullButtons(true);
+      document.querySelector(".app").classList.add("page-active");
       setTimeout(() => {
         const pageElement = document.querySelector(`.page.${path}`);
         if (pageElement) {
@@ -41,11 +44,23 @@ function App() {
         setIsTransitioning(false);
       }, 500); // Delay before adding the "open" class
     } else {
+      setFullButtons(false);
       setCurrentPage(null);
       setRenderedPage(null);
       setIsTransitioning(false);
+      setAppBackgroundColor(null);
+      document.querySelector(".app").classList.remove("page-active");
     }
   }, [location]);
+
+  const setAppBackgroundColor = (pageTitle) => {
+    const page = pages.find((p) => p.title.toLowerCase() === pageTitle);
+    if (page) {
+      document.querySelector(".app").style.backgroundColor = page.gradientStart;
+    } else {
+      document.querySelector(".app").style.backgroundColor = "rgb(36, 36, 36)";
+    }
+  };
 
   const handlePageChange = (pageTitle) => {
     if (isTransitioning) return;
@@ -62,6 +77,8 @@ function App() {
           setFullButtons(false);
           navigate("/");
           setIsTransitioning(false);
+          setAppBackgroundColor(null);
+          document.querySelector(".app").classList.remove("page-active");
         }, 500); // Delay to match the CSS transition
       }
     } else {
@@ -78,6 +95,8 @@ function App() {
             setCurrentPage(newPage);
             setRenderedPage(newPage);
             navigate(`/${newPage}`);
+            setAppBackgroundColor(newPage);
+            document.querySelector(".app").classList.add("page-active");
             setTimeout(() => {
               const newPageElement = document.querySelector(`.page.${newPage}`);
               if (newPageElement) {
@@ -92,6 +111,8 @@ function App() {
         setCurrentPage(newPage);
         setRenderedPage(newPage);
         navigate(`/${newPage}`);
+        setAppBackgroundColor(newPage);
+        document.querySelector(".app").classList.add("page-active");
         setTimeout(() => {
           const newPageElement = document.querySelector(`.page.${newPage}`);
           if (newPageElement) {
@@ -113,6 +134,18 @@ function App() {
             <>
               <button
                 onClick={() => handlePageChange(page.title)}
+                onMouseEnter={() => {
+                  setAppBackgroundColor(title);
+                  document.querySelector(".app").classList.add("page-active");
+                }}
+                onMouseLeave={() => {
+                  setAppBackgroundColor(currentPage);
+                  if (!currentPage) {
+                    document
+                      .querySelector(".app")
+                      .classList.remove("page-active");
+                  }
+                }}
                 className={fullButtons && "full"}
                 style={{
                   "--gradient-start": page.gradientStart,

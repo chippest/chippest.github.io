@@ -7,23 +7,33 @@
   overflow: hidden;
   background: radial-gradient(
     circle,
-    rgba(0, 0, 0, 0.575) 0%,
-    transparent 100%
+    rgba(0, 0, 0, 0.829) 0%,
+    rgb(0, 0, 0) 100%
   );
+  transition: 1s all;
 }
 
 .symbol {
   position: absolute;
-  color: rgba(187, 6, 6, 0.5);
-  animation: float 10s infinite linear, rotate3d 10s infinite linear;
+  color: rgba(255, 255, 255, 0.5);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  animation: float 5s infinite linear, rotate3d 5s infinite linear;
+}
+
+.symbol[style*="font-weight: bold"] {
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 }
 
 @keyframes float {
   0% {
-    transform: translate(0, 0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translate(100px, 100px);
+    transform: translate3d(
+      calc(200px * var(--direction-x)),
+      calc(200px * var(--direction-y)),
+      calc(200px * var(--direction-z))
+    );
   }
 }
 

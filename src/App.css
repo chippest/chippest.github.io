@@ -4,12 +4,18 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background: rgb(36, 36, 36);
   color: #fff;
   position: relative;
   font-family: "Roboto", sans-serif;
+  background: rgb(36, 36, 36);
+  transition: background-color 0.5s ease;
+
+  &.page-active .background {
+    filter: blur(5px);
+  }
 
   .pages {
+    z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -45,12 +51,30 @@
       color: ghostwhite;
       overflow: hidden;
       transition: all 0.4s cubic-bezier(0.5, 1, 0.8, 1);
+      box-shadow: 0 0 2px var(--gradient-start);
       span {
         position: relative;
+        transition: text-shadow 0.4s cubic-bezier(0.5, 1, 0.8, 1);
       }
       &.full {
         width: 100%;
         border-radius: 0;
+        box-shadow: none;
+        span {
+          text-shadow: 0 0 10px var(--gradient-start);
+        }
+      }
+
+      &:hover {
+        box-shadow: 0 0 20px var(--gradient-start);
+      }
+
+      &:hover span {
+        text-shadow: 0 0 20px var(--gradient-start);
+      }
+
+      &:hover ~ .background .symbol {
+        filter: blur(5px);
       }
 
       &::before,
@@ -82,7 +106,7 @@
     }
 
     .page {
-      background: #000000b4;
+      background: #0000002c;
       width: 100%;
       height: 0%;
       overflow: hidden;
