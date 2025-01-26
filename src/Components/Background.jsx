@@ -6,24 +6,25 @@ const Background = () => {
 
   useEffect(() => {
     const container = containerRef.current;
-    const numCubes = Math.floor(
+    const numSymbols = Math.floor(
       (window.innerWidth * window.innerHeight) / 10000
     );
-    const cubes = [];
+    const symbols = [];
 
-    for (let i = 0; i < numCubes; i++) {
-      const cube = document.createElement("div");
-      cube.className = "cube";
-      cube.style.left = `${Math.random() * 100}%`;
-      cube.style.top = `${Math.random() * 100}%`;
-      cube.style.animationDuration = `${Math.random() * 10 + 5}s`;
-      cube.style.animationDelay = `${Math.random() * 5}s`;
-      container.appendChild(cube);
-      cubes.push(cube);
+    for (let i = 0; i < numSymbols; i++) {
+      const symbol = document.createElement("div");
+      symbol.className = "symbol";
+      symbol.textContent = "+";
+      symbol.style.left = `${Math.random() * 100}%`;
+      symbol.style.top = `${Math.random() * 100}%`;
+      symbol.style.animationDuration = `${Math.random() * 10 + 5}s`;
+      symbol.style.animationDelay = `${Math.random() * 5}s`;
+      container.appendChild(symbol);
+      symbols.push(symbol);
     }
 
     return () => {
-      cubes.forEach((cube) => container.removeChild(cube));
+      symbols.forEach((symbol) => container.removeChild(symbol));
     };
   }, []);
 
