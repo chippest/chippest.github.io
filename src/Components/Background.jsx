@@ -17,6 +17,8 @@ const Background = () => {
       symbol.textContent = "+";
       symbol.style.left = `${Math.random() * 100}%`;
       symbol.style.top = `${Math.random() * 100}%`;
+      symbol.style.fontSize = `${Math.random() * 20 + 10}px`;
+      symbol.style.fontWeight = Math.random() > 0.5 ? "bold" : "normal";
       symbol.style.animationDuration = `${Math.random() * 10 + 5}s`;
       symbol.style.animationDelay = `${Math.random() * 5}s`;
       container.appendChild(symbol);
