@@ -12,6 +12,7 @@ import { Home } from "./Pages/Home";
 import { About } from "./Pages/About";
 import { Contact } from "./Pages/Contact";
 import { Projects } from "./Pages/Projects";
+import Background from "./Components/Background";
 
 function App() {
   const pages = [
@@ -104,6 +105,7 @@ function App() {
 
   return (
     <div className="app">
+      <Background />
       <div className={`pages ${fullButtons ? "gapped" : ""}`}>
         {pages.map((page, index) => {
           const title = page.title.toLowerCase();

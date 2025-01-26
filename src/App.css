@@ -4,8 +4,9 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background: gray;
+  background: rgb(36, 36, 36);
   color: #fff;
+  position: relative;
   font-family: "Roboto", sans-serif;
 
   .pages {
