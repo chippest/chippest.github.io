@@ -11,17 +11,17 @@
     rgb(0, 0, 0) 100%
   );
   transition: 1s all;
-}
 
-.symbol {
-  position: absolute;
-  color: rgba(255, 255, 255, 0.5);
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  animation: float 5s infinite linear, rotate3d 5s infinite linear;
-}
+  .symbol {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    animation: float 5s infinite linear, rotate3d 5s infinite linear;
 
-.symbol[style*="font-weight: bold"] {
-  text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    &[style*="font-weight: bold"] {
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    }
+  }
 }
 
 @keyframes float {
