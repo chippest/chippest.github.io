@@ -16,10 +16,10 @@ import Background from "./Components/Background";
 
 function App() {
   const pages = [
-    new Page("Home", "Home page", "#8e2de2", "#4a00e0"),
-    new Page("About", "About page", "#ff7e5f", "#feb47b"),
-    new Page("Contact", "Contact page", "#43cea2", "#185a9d"),
-    new Page("Projects", "Projects page", "#ff6a00", "#ee0979"),
+    new Page("Home", "#8e2de2", "#4a00e0"),
+    new Page("About", "#ff7e5f", "#feb47b"),
+    new Page("Contact", "#43cea2", "#185a9d"),
+    new Page("Projects", "#ff6a00", "#ee0979"),
   ];
   const [currentPage, setCurrentPage] = useState(null);
   const [renderedPage, setRenderedPage] = useState(null);
