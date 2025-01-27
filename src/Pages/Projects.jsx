@@ -32,14 +32,28 @@ export const Projects = () => {
     setSelectedRepo(repo);
   };
 
+  const handleReset = () => {
+    setSelectedRepo(null);
+  };
+
   return (
     <div className="projects-container">
       <div className="projects-nav">
-        {repos.map((repo) => (
-          <button key={repo.id} onClick={() => handleRepoClick(repo)}>
-            {repo.name}
-          </button>
-        ))}
+        {repos.map(
+          (repo) =>
+            repo.name != "chippest.github.io" && (
+              <button
+                key={repo.id}
+                onClick={() => handleRepoClick(repo)}
+                className="repo-button"
+              >
+                {repo.name}
+              </button>
+            )
+        )}
+        <button onClick={handleReset} className="reset-button">
+          Reset
+        </button>
       </div>
       <div className="projects-display">
         {selectedRepo && (
