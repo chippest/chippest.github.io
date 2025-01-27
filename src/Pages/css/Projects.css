@@ -17,68 +17,81 @@
     border-right: 10px solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
+    gap: 0.2rem;
 
-    .repo-button {
-      /* in scss with just one variable i can change opacity with rgba(variable, opacity) but in css it's not possible so i have used three seperate variables */
-      /* with hue-rotate color can be changed */
-      --main-color: #ff6a00;
-      --main-bg-color: #973f00;
-      --pattern-color: #4e2100;
+    .projectList {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      button {
+        /* in scss with just one variable i can change opacity with rgba(variable, opacity) but in css it's not possible so i have used three seperate variables */
+        /* with hue-rotate color can be changed */
+        --main-color: #ff6a00;
+        --main-bg-color: #973f00;
+        --pattern-color: #4e2100;
 
-      /* change this rotation value */
-      filter: hue-rotate(0deg);
+        /* change this rotation value */
+        filter: hue-rotate(0deg);
 
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 0.2rem;
-      background: radial-gradient(
-          circle,
-          var(--main-bg-color) 0%,
-          rgba(0, 0, 0, 0) 95%
-        ),
-        linear-gradient(var(--pattern-color) 1px, transparent 1px),
-        linear-gradient(to right, var(--pattern-color) 1px, transparent 1px);
-      background-size: cover, 15px 15px, 15px 15px;
-      background-position: center center, center center, center center;
-      border-image: radial-gradient(
-          circle,
-          var(--main-color) 0%,
-          rgba(0, 0, 0, 0) 100%
-        )
-        1;
-      border-width: 1px 0 1px 0;
-      color: var(--main-color);
-      padding: 1rem 0;
-      font-weight: 700;
-      font-size: 1rem;
-      transition: background-size 0.2s ease-in-out;
-
-      &:hover {
-        background-size: cover, 10px 10px, 10px 10px;
-      }
-
-      &:active {
-        filter: hue-rotate(-0.25turn);
-      }
-    }
-
-    .reset-button {
-      display: block;
-      width: 100%;
-      padding: 0.5rem;
-      background: #4e2100;
-      border: none;
-      cursor: pointer;
-      text-align: left;
-      transition: all 0.3s;
-      color: #fff;
-      text-align: center;
-
-      &:hover {
-        background: #973f0073;
+        cursor: pointer;
+        text-transform: uppercase;
         letter-spacing: 0.2rem;
+        background: radial-gradient(
+            circle,
+            var(--main-bg-color) 0%,
+            rgba(0, 0, 0, 0) 95%
+          ),
+          linear-gradient(var(--pattern-color) 1px, transparent 1px),
+          linear-gradient(to right, var(--pattern-color) 1px, transparent 1px);
+        background-size: cover, 15px 15px, 15px 15px;
+        background-position: center center, center center, center center;
+        border-image: radial-gradient(
+            circle,
+            var(--main-color) 0%,
+            rgba(0, 0, 0, 0) 100%
+          )
+          1;
+        border-width: 1px 0 1px 0;
+        color: var(--main-color);
+        padding: 0.75rem 0;
         font-weight: 700;
+        font-size: 1rem;
+        transition: background-size 0.2s ease-in-out;
+
+        &:hover {
+          background-size: cover, 10px 10px, 10px 10px;
+        }
+
+        &:active {
+          filter: hue-rotate(-0.25turn);
+        }
+        &.reset-button {
+          --main-color: #ee0979;
+          --main-bg-color: #680133a4;
+          --pattern-color: #38011b71;
+          font-weight: 700;
+          font-size: 0.7rem;
+        }
       }
+
+      /* .reset-button {
+        display: block;
+        width: 100%;
+        padding: 0.5rem;
+        background: #4e2100;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+        transition: all 0.3s;
+        color: #fff;
+        text-align: center;
+
+        &:hover {
+          background: #973f0073;
+          letter-spacing: 0.2rem;
+          font-weight: 700;
+        }
+      } */
     }
   }
 
