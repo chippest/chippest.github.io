@@ -65,18 +65,19 @@
   display: block;
   width: 100%;
   padding: 0.5rem;
-  margin-bottom: 0.5rem;
-  background: rgba(68, 68, 68, 0.8);
-  color: #fff;
+  background: #4e2100;
   border: none;
   cursor: pointer;
   text-align: left;
-  transition: background 0.3s;
+  transition: all 0.3s;
   color: #fff;
+  text-align: center;
 }
 
 .reset-button:hover {
-  background: rgba(204, 0, 0, 0.8);
+  background: #973f0073;
+  letter-spacing: 0.2rem;
+  font-weight: 700;
 }
 
 .projects-display {
