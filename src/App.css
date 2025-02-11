@@ -11,7 +11,7 @@
   transition: background-color 0.5s ease;
 
   &.page-active .background {
-    /* filter: blur(5px); */
+    filter: blur(5px);
   }
 
   .pages {
