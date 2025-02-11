@@ -8,13 +8,17 @@
   height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .projects-nav {
-    width: 20%;
+    margin-top: 1rem;
+    width: 100%;
+    height: 100%;
     background: rgba(51, 51, 51, 0.1);
     padding: 1rem;
     overflow-y: auto;
-    border-right: 10px solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
@@ -99,8 +103,10 @@
     --main-color: #ff6a00;
     --main-bg-color: #973f0073;
     --pattern-color: #4e2100;
-    width: 80%;
-    padding: 1rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(255, 255, 255, 0.8);
     overflow: hidden;
     background: radial-gradient(
@@ -119,12 +125,34 @@
       )
       1;
     border-width: 1px 0 1px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .proCloseBtn {
+      /* Updated pure CSS styles mimicking btn.html */
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 3rem;
+      height: 3rem;
+      border: 2px solid black;
+      overflow: hidden;
+      transition: border-color 0.5s ease-in-out;
+      background: #973f0073;
+      color: white;
+    }
+
+    .proCloseBtn:hover {
+      border-color: #ff6a00; /* Tailwind green-500 */
+    }
 
     .project-iframe {
       width: 100%;
       height: 100%;
+      scale: 0.9;
+      border-radius: 10px;
       border: none;
-      background: rgba(255, 255, 255, 0.8);
     }
   }
 

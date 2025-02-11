@@ -4,6 +4,7 @@ import "./css/Projects.css";
 export const Projects = () => {
   const [repos, setRepos] = useState([]);
   const [selectedRepo, setSelectedRepo] = useState(null);
+  const [openedProject, steOpenedProject] = useState(false);
 
   useEffect(() => {
     const fetchRepos = async () => {
@@ -30,6 +31,7 @@ export const Projects = () => {
 
   const handleRepoClick = (repo) => {
     setSelectedRepo(repo);
+    steOpenedProject(true);
   };
 
   const handleReset = () => {
@@ -63,15 +65,25 @@ export const Projects = () => {
           </button>
         </div>
       </div>
-      <div className="projects-display">
-        {selectedRepo && (
-          <iframe
-            src={`https://raw.githack.com/chippest/${selectedRepo.name}/main/index.html`}
-            title={selectedRepo.name}
-            className="project-iframe"
-          ></iframe>
-        )}
-      </div>
+      {openedProject && (
+        <div className="projects-display">
+          <button
+            className="proCloseBtn"
+            onClick={() => {
+              steOpenedProject(false);
+            }}
+          >
+            X
+          </button>
+          {selectedRepo && (
+            <iframe
+              src={`https://raw.githack.com/chippest/${selectedRepo.name}/main/index.html`}
+              title={selectedRepo.name}
+              className="project-iframe"
+            ></iframe>
+          )}
+        </div>
+      )}
     </div>
   );
 };
