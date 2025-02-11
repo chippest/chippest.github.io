@@ -28,13 +28,10 @@
       flex-direction: column;
       gap: 0.2rem;
       button {
-        /* in scss with just one variable i can change opacity with rgba(variable, opacity) but in css it's not possible so i have used three seperate variables */
-        /* with hue-rotate color can be changed */
         --main-color: #ff6a00;
         --main-bg-color: #973f00;
         --pattern-color: #4e2100;
 
-        /* change this rotation value */
         filter: hue-rotate(0deg);
 
         cursor: pointer;
@@ -77,25 +74,6 @@
           font-size: 0.7rem;
         }
       }
-
-      /* .reset-button {
-        display: block;
-        width: 100%;
-        padding: 0.5rem;
-        background: #4e2100;
-        border: none;
-        cursor: pointer;
-        text-align: left;
-        transition: all 0.3s;
-        color: #fff;
-        text-align: center;
-
-        &:hover {
-          background: #973f0073;
-          letter-spacing: 0.2rem;
-          font-weight: 700;
-        }
-      } */
     }
   }
 
@@ -130,7 +108,6 @@
     align-items: center;
 
     .proCloseBtn {
-      /* Updated pure CSS styles mimicking btn.html */
       position: absolute;
       top: 0;
       right: 0;
@@ -144,7 +121,7 @@
     }
 
     .proCloseBtn:hover {
-      border-color: #ff6a00; /* Tailwind green-500 */
+      border-color: #ff6a00;
     }
 
     .project-iframe {
