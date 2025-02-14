@@ -1,3 +1,5 @@
+import { About } from "./pages/About";
+
 function App() {
   const pages = [
     { name: "About" },
