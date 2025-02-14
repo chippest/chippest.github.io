@@ -1,5 +1,6 @@
 import { About } from "./pages/About";
 import { Contact } from "./pages/Contact";
+import { Projects } from "./Pages/Projects";
 
 function App() {
   const pages = [
