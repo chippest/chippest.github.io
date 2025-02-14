@@ -5,7 +5,19 @@ function App() {
     { name: "Contact" },
     { name: "" },
   ];
-  return <div className="app">use the last nav system for this portfolio</div>;
+  return (
+    <div className="app">
+      <h1>Chipp</h1>
+      <div className="container">
+        <div className="pageNav">
+          <div className="button">About</div>
+          <div className="button">Projects</div>
+          <div className="button">Contact</div>
+        </div>
+        <div className="page"></div>
+      </div>
+    </div>
+  );
 }
 
 export default App;
