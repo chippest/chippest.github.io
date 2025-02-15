@@ -1,4 +1,3 @@
-import { Route, Routes, Link } from "react-router-dom";
 import { Projects } from "./Pages/Projects";
 import { Contact } from "./pages/Contact";
 import { About } from "./pages/About";
@@ -15,24 +14,14 @@ function App() {
       <h1>Chipp</h1>
       <div className="container">
         <div className="pageNav">
-          <div className="button">
-            <Link to="/about">About</Link>
-          </div>
-          <div className="button">
-            <Link to="/projects">Projects</Link>
-          </div>
-          <div className="button">
-            <Link to="/contact">Contact</Link>
-          </div>
+          <div className="button">About</div>
+          <div className="button">Projects</div>
+          <div className="button">Contact</div>
         </div>
         <div className="page">
-          <Routes>
-            <Route path="/about" element={<About />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/contact" element={<Contact />} />
-            {/* Optionally add a fallback route */}
-            {/* <Route path="*" element={<About />} /> */}
-          </Routes>
+          <About />
+          <Projects />
+          <Contact />
         </div>
       </div>
     </div>
