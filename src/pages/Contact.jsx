@@ -1,9 +1,8 @@
-import "./css/contact.css";
-
 export const Contact = () => {
   return (
-    <>
-      <div className="contact">Contact</div>
-    </>
+    <div>
+      <h1>Contact</h1>
+      <p>Welcome to the contact page!</p>
+    </div>
   );
 };
